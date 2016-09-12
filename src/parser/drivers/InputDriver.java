@@ -1,6 +1,6 @@
 package parser.drivers;
 
-import container.Struct;
+import container.StructNode;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -26,7 +26,7 @@ public class InputDriver {
 
     public List<String[]>[] readStructData(String url) {
 
-        Struct dataStructure = new Struct("main");
+        StructNode dataStructure = new StructNode("main");
 
         List<String[]> bodyList = new ArrayList<>();
         List<String[]> headerList = new ArrayList<>();
@@ -57,33 +57,34 @@ public class InputDriver {
                     bodyList.add(tokeLine);
                 }
             }
-
             bodyList = prepareBrackets(bodyList, ARRAY_TYPES, STRING_TYPES);
 
             ArrayList<String[]> tmp = new ArrayList<>();
-            bodyList.forEach( b -> {
-                if (b.length > 0) tmp.add(b);
-            });
+            bodyList.forEach( b -> {if (b.length > 0) tmp.add(b);});
             bodyList = tmp;
             bodyList = new ArrayList<>(prepareDots(bodyList));
 
             long time1 = System.nanoTime() - time0;
-            System.out.println("Compiled in: "+time1+" ns");
+            String finish = "Compiled INPUT_DRIVER: "+time1+" ns";
+            printUnderlined(finish, "#");
 
         }catch(Exception e){
             e.printStackTrace();
         }
-        System.out.println("########################");
+
 
 
         List<String[]>[] returnListArray = new ArrayList[2];
         returnListArray[0] = headerList;
         returnListArray[1] = bodyList;
-
         return returnListArray;
     }
 
-
+    private static void printUnderlined(String msg, String symb){
+        System.out.println(msg);
+        for (int i = 0; i < msg.length(); i++) System.out.print(symb);
+        System.out.println("");
+    }
 
     private static boolean needRefactor(List<String[]> list) {
         for (String[] aList : list) if (aList[0].contains(".")) return true;
