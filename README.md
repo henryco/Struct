@@ -1,5 +1,5 @@
-<b>Struct</b> : {
-    markup.language {}
-}
+<b>Struct</b> : <br>
+	markup.language {}
+
 
 
