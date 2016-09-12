@@ -1,0 +1,9 @@
+<root>
+    <item name='java.lang.Class'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+    <item name='java.lang.Object java.lang.Class&lt;?&gt; getClass()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

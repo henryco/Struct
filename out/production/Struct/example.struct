@@ -1,0 +1,51 @@
+#type : struct
+#import: typeName  java.test
+#import name: java.other
+
+name: {
+    field_1  5;
+    {
+        typeName:field2:10
+
+        field_3 : "tex t fgg d "//comment1
+        {
+            name typeName: {
+                otherTest =' 5'
+                importedTs "  import";
+            }
+        }
+        //int typoTest = 3
+        struct_1.struct_2
+        {
+            struct_24 {
+                int val = 5;
+            }
+            {
+                typ: 123
+                innerValue.otherValue = 9
+            }
+        }
+
+        struct_3 : {
+            struct_4 : {
+                int val = 5;
+            }
+        }
+
+        struct_5.struct_6.test = 3;
+    }
+
+    {
+        tez = 5;
+    }
+
+    field4 :
+    {
+        // other comment
+        field5: 12
+        field6 : [df,d 5, '12 3']//comment3
+        field7 = (df, wse ,1.4 , " d")
+    }
+}
+
+
