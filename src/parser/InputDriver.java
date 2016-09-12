@@ -71,7 +71,6 @@ public class InputDriver {
                 }
             }
 
-
             bodyList = prepareBrackets(bodyList, ARRAY_TYPES, STRING_TYPES);
 
             ArrayList<String[]> tmp = new ArrayList<>();
@@ -79,11 +78,7 @@ public class InputDriver {
                 if (b.length > 0) tmp.add(b);
             });
             bodyList = tmp;
-
-                long time00 = System.nanoTime();
-                bodyList = new ArrayList<>(prepareDots(bodyList));
-                long time2 = System.nanoTime() - time00;
-            System.out.println("Refactored in: "+time2+" ns");
+            bodyList = new ArrayList<>(prepareDots(bodyList));
 
             long time1 = System.nanoTime() - time0;
             System.out.println("Compiled in: "+time1+" ns");

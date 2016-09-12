@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="" />
+    <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example.struct" afterPath="$PROJECT_DIR$/src/example.struct" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/InputDriver.java" afterPath="$PROJECT_DIR$/src/parser/InputDriver.java" />
+    </list>
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,8 +41,8 @@
           <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/parser/InputDriver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1131">
-                  <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+                <state relative-caret-position="1240">
+                  <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#printData#0;class#InputDriver#0" expanded="false" />
@@ -71,9 +74,10 @@
           <file leaf-file-name="Struct.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/container/Struct.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="200">
+                <state relative-caret-position="180">
                   <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
                   <folding>
+                    <element signature="imports" expanded="false" />
                     <element signature="docComment;class#Struct#0" expanded="false" />
                     <element signature="method#Struct#1;class#Struct#0" expanded="false" />
                     <element signature="e#697#698#0" expanded="false" />
@@ -94,8 +98,8 @@
           <file leaf-file-name="example.struct" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/example.struct">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+                <state relative-caret-position="800">
+                  <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -137,8 +141,8 @@
         <option value="$PROJECT_DIR$/src/parser/dataType/DataType.java" />
         <option value="$PROJECT_DIR$/src/parser/dataType/StructType.java" />
         <option value="$PROJECT_DIR$/src/parser/dataType/JavaType.java" />
-        <option value="$PROJECT_DIR$/src/example.struct" />
         <option value="$PROJECT_DIR$/src/parser/InputDriver.java" />
+        <option value="$PROJECT_DIR$/src/example.struct" />
       </list>
     </option>
   </component>
@@ -248,8 +252,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -342,7 +345,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -652,7 +656,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31137726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31037924" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -706,6 +710,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/InputDriver.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6040">
+          <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printData#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#checkBody#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/dataType/DataType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="docComment;class#DataType#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/Struct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#Struct#0" expanded="false" />
+            <element signature="method#Struct#1;class#Struct#0" expanded="false" />
+            <element signature="e#697#698#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#807#808#0" expanded="false" />
+            <element signature="e#855#856#0" expanded="false" />
+            <element signature="e#897#898#0" expanded="false" />
+            <element signature="e#945#946#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example.struct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <element signature="docComment;class#MainTMP#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/InputDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6440">
           <caret line="332" column="9" selection-start-line="332" selection-start-column="9" selection-end-line="332" selection-end-column="9" />
           <folding>
@@ -727,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22520">
           <caret line="2900" column="0" selection-start-line="2900" selection-start-column="0" selection-end-line="2900" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,6 +814,7 @@
         <state relative-caret-position="200">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#Struct#0" expanded="false" />
             <element signature="method#Struct#1;class#Struct#0" expanded="false" />
             <element signature="e#697#698#0" expanded="false" />
@@ -799,7 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22520">
           <caret line="2900" column="0" selection-start-line="2900" selection-start-column="0" selection-end-line="2900" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,6 +886,7 @@
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#Struct#0" expanded="false" />
             <element signature="method#Struct#1;class#Struct#0" expanded="false" />
             <element signature="e#697#698#0" expanded="false" />
@@ -871,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58000">
           <caret line="2900" column="0" selection-start-line="2900" selection-start-column="0" selection-end-line="2900" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,6 +958,7 @@
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#Struct#0" expanded="false" />
             <element signature="method#Struct#1;class#Struct#0" expanded="false" />
             <element signature="e#697#698#0" expanded="false" />
@@ -937,9 +1006,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/container/Struct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="docComment;class#Struct#0" expanded="false" />
             <element signature="method#Struct#1;class#Struct#0" expanded="false" />
             <element signature="e#697#698#0" expanded="false" />
@@ -966,22 +1036,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/example.struct">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/InputDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1131">
-          <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+        <state relative-caret-position="1240">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#printData#0;class#InputDriver#0" expanded="false" />
@@ -994,6 +1055,14 @@
             <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example.struct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
