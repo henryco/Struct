@@ -1,3 +1,5 @@
-<b>Struct</b> 
+<b>Struct</b> : {
+    markup.language {}
+}
 
-Experimental markup language.
+
