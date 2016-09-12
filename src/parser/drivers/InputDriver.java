@@ -1,9 +1,6 @@
-package parser;
+package parser.drivers;
 
 import container.Struct;
-import parser.dataType.DataType;
-import parser.dataType.JavaType;
-import parser.dataType.StructType;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -23,21 +20,11 @@ public class InputDriver {
     private String[] EQUALS_TYPES = new String[]{"="};
     private String[] IGNORED_TYPES = new String[]{";"};
 
-    public InputDriver() {
+    InputDriver() {
 
     }
 
-    private static void printData(List<String[]> data) {
-        System.out.println(" ");
-        data.forEach(l -> {
-            for (String line : l)
-                System.out.print("<"+line+"> ");
-            if (l.length > 0)
-                System.out.println("");
-        });
-    }
-
-    public Struct readDataFF(String url) {
+    public List<String[]>[] readStructData(String url) {
 
         Struct dataStructure = new Struct("main");
 
@@ -86,24 +73,16 @@ public class InputDriver {
         }catch(Exception e){
             e.printStackTrace();
         }
-        System.out.println("################");
-        printData(headerList);
-        printData(bodyList);
+        System.out.println("########################");
 
-        DataType dataType = getDataTypeFromHeader(headerList);
 
-        return dataStructure;
+        List<String[]>[] returnListArray = new ArrayList[2];
+        returnListArray[0] = headerList;
+        returnListArray[1] = bodyList;
+
+        return returnListArray;
     }
 
-
-
-
-    private static DataType getDataTypeFromHeader(List<String[]> headerList) {
-        for (String[] aHeaderList : headerList)
-            if (aHeaderList[0].contains("type"))
-                if (aHeaderList[1].equalsIgnoreCase("java")) return new JavaType();
-        return new StructType();
-    }
 
 
     private static boolean needRefactor(List<String[]> list) {
@@ -341,38 +320,38 @@ public class InputDriver {
 
 
 
-    public String[] getARRAY_TYPES() {
+    protected String[] getARRAY_TYPES() {
         return ARRAY_TYPES;
     }
-    public InputDriver setARRAY_TYPES(String[] ARRAY_TYPES) {
+    protected InputDriver setARRAY_TYPES(String[] ARRAY_TYPES) {
         this.ARRAY_TYPES = ARRAY_TYPES;
         return this;
     }
-    public String[] getCOMMENT_TYPES() {
+    protected String[] getCOMMENT_TYPES() {
         return COMMENT_TYPES;
     }
-    public InputDriver setCOMMENT_TYPES(String[] COMMENT_TYPES) {
+    protected InputDriver setCOMMENT_TYPES(String[] COMMENT_TYPES) {
         this.COMMENT_TYPES = COMMENT_TYPES;
         return this;
     }
-    public String[] getSTRING_TYPES() {
+    protected String[] getSTRING_TYPES() {
         return STRING_TYPES;
     }
-    public InputDriver setSTRING_TYPES(String[] STRING_TYPES) {
+    protected InputDriver setSTRING_TYPES(String[] STRING_TYPES) {
         this.STRING_TYPES = STRING_TYPES;
         return this;
     }
-    public String[] getEQUALS_TYPES() {
+    protected String[] getEQUALS_TYPES() {
         return EQUALS_TYPES;
     }
-    public InputDriver setEQUALS_TYPES(String[] EQUALS_TYPES) {
+    protected InputDriver setEQUALS_TYPES(String[] EQUALS_TYPES) {
         this.EQUALS_TYPES = EQUALS_TYPES;
         return this;
     }
-    public String[] getIGNORED_TYPES() {
+    protected String[] getIGNORED_TYPES() {
         return IGNORED_TYPES;
     }
-    public InputDriver setIGNORED_TYPES(String[] IGNORED_TYPES) {
+    protected InputDriver setIGNORED_TYPES(String[] IGNORED_TYPES) {
         this.IGNORED_TYPES = IGNORED_TYPES;
         return this;
     }

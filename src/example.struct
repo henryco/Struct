@@ -37,9 +37,6 @@ name: {
 
     {
         tez = 5;
-
-         
-
     }
 
     field4 :
@@ -50,5 +47,17 @@ name: {
         field7 = (df, wse ,1.4 , " d")
     }
 }
+
+extra {
+
+    Light "dg"
+    size 45
+    numbs: {
+        arr [0,1,2,3];
+        other("34", " fg")
+        inter.call ["nope", 1]
+    }
+}
+
 
 
