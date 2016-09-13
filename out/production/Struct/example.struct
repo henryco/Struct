@@ -57,6 +57,29 @@ extra {
         other("34", " fg")
         inter.call ["nope", 1]
     }
+
+    nubs: {
+        arr : {
+            0: 0
+            1: 1
+            2: 2
+            3: 3
+        }
+
+        other : {
+            0: 34
+            1: " fg"
+        }
+
+        inter : {
+            call : {
+                0: "nope"
+                1: 1
+            }
+        }
+
+    }
+
 }
 
 

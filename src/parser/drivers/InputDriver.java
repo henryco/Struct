@@ -24,6 +24,7 @@ public class InputDriver {
 
     }
 
+
     public List<String[]>[] readStructData(String url) {
 
         StructNode dataStructure = new StructNode("main");
@@ -86,10 +87,14 @@ public class InputDriver {
         System.out.println("");
     }
 
+
+
+
     private static boolean needRefactor(List<String[]> list) {
         for (String[] aList : list) if (aList[0].contains(".")) return true;
         return false;
     }
+
 
 
 
@@ -132,7 +137,6 @@ public class InputDriver {
             if (extra) lineList.add(extraSym);
         }return lineList.toArray(new String[lineList.size()]);
     }
-
 
 
 
@@ -243,6 +247,9 @@ public class InputDriver {
     }
 
 
+
+
+
     private static List<String[]> prepareDots(List<String[]> dataList) {
 
         List<String[]> closure = new ArrayList<>();
@@ -292,6 +299,9 @@ public class InputDriver {
         for (String tp : type) if (ch == tp.toCharArray()[0]) return true;
         return false;
     }
+
+
+
     private static String replaceFor(String line, String[] symbols, String replaceSym) {
 
         char[] charArray = line.toCharArray();
@@ -299,16 +309,21 @@ public class InputDriver {
             if (checkCharMatch(charArray[i], symbols)) charArray[i] = replaceSym.toCharArray()[0];
         return new String(charArray);
     }
+
+
     private static boolean checkImports(String line) {
         return line.contains("#");
     }
+
     private static boolean checkBody(String line, String commentSym) {
 
         return !line.startsWith(commentSym) && !line.isEmpty();
     }
+
     private static boolean containsStrong(String data, String value) {
         return data.contains(value) && (data.length() == value.length());
     }
+
     private static String[] createMultiArray(String[] arr1, String[] arr2) {
         String[] multi = new String[arr1.length + arr2.length];
         ArrayList<String> tmp = new ArrayList<>();

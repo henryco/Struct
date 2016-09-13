@@ -52,11 +52,39 @@ extra {
 
     Light "dg"
     size 45
+
+    // examples 1 and 2 are same
+
+    // example 1
     numbs: {
         arr [0,1,2,3];
         other("34", " fg")
         inter.call ["nope", 1]
     }
+
+    // example 2
+    numbs: {
+        arr : {
+            0: 0
+            1: 1
+            2: 2
+            3: 3
+        }
+
+        other : {
+            0: 34
+            1: " fg"
+        }
+
+        inter : {
+            call : {
+                0: "nope"
+                1: 1
+            }
+        }
+
+    }
+
 }
 
 

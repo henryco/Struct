@@ -3,6 +3,6 @@ package parser.dataType;
 /**
  * @author Henry on 10/09/16.
  */
-public class StructType extends DataType{
+public class StructType implements DataType{
 
 }
