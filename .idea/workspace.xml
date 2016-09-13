@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/container/StructContainer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTMP.java" afterPath="$PROJECT_DIR$/src/MainTMP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/StructNode.java" afterPath="$PROJECT_DIR$/src/container/StructNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example.struct" afterPath="$PROJECT_DIR$/src/example.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/dataType/DataType.java" afterPath="$PROJECT_DIR$/src/parser/dataType/DataType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/dataType/JavaType.java" afterPath="$PROJECT_DIR$/src/parser/dataType/JavaType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/dataType/StructType.java" afterPath="$PROJECT_DIR$/src/parser/dataType/StructType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" afterPath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
     </list>
     <ignored path="Struct.iws" />
@@ -33,12 +27,33 @@
     <splitter split-orientation="horizontal" split-proportion="0.6751361">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MainTMP.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MainTMP.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+                <state relative-caret-position="280">
+                  <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="436">
+                  <caret line="183" column="90" selection-start-line="183" selection-start-column="90" selection-end-line="183" selection-end-column="90" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#checkBody#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
+                    <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -78,8 +93,8 @@
           <file leaf-file-name="example.struct" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/example.struct">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="890">
-                  <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+                <state relative-caret-position="520">
+                  <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -123,10 +138,10 @@
         <option value="$PROJECT_DIR$/src/parser/dataType/JavaType.java" />
         <option value="$PROJECT_DIR$/src/parser/dataType/StructType.java" />
         <option value="$PROJECT_DIR$/src/parser/dataType/DataType.java" />
-        <option value="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
         <option value="$PROJECT_DIR$/src/container/StructContainer.java" />
         <option value="$PROJECT_DIR$/src/container/StructNode.java" />
         <option value="$PROJECT_DIR$/src/MainTMP.java" />
+        <option value="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
         <option value="$PROJECT_DIR$/src/example.struct" />
       </list>
     </option>
@@ -653,7 +668,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23552895" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23552895" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283433" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1008,25 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#checkBody#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
-            <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1053,16 +1049,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        <state relative-caret-position="280">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="183" column="90" selection-start-line="183" selection-start-column="90" selection-end-line="183" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#checkBody#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/example.struct">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="890">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state relative-caret-position="520">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
           <folding />
         </state>
       </provider>

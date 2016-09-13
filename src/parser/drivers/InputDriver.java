@@ -81,9 +81,9 @@ public class InputDriver {
         return returnListArray;
     }
 
-    private static void printUnderlined(String msg, String symb){
+    private static void printUnderlined(String msg, String sym){
         System.out.println(msg);
-        for (int i = 0; i < msg.length(); i++) System.out.print(symb);
+        for (int i = 0; i < msg.length(); i++) System.out.print(sym);
         System.out.println("");
     }
 
