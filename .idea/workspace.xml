@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example.struct" afterPath="$PROJECT_DIR$/src/example.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" afterPath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
-    </list>
+    <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="" />
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -658,7 +654,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-32" width="1920" height="1112" extended-state="7" />
+    <frame x="0" y="-32" width="1920" height="1112" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
