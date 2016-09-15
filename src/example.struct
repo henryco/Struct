@@ -54,24 +54,25 @@ extra {
     Light "dg"
     size 45
 
-    // examples 1 and 2 are same
+    //links below are same
+    testLink: >> name >> field_3;
+    testLink2: name -> field_3;
 
+    // examples 1 and 2 are same
     // example 1
     numbs: {
         arr [0,1,2,3];
         other("34", " fg")
         inter.call ["nope", 1]
         initArr1[2]
-        initArr2(3)
         initArr3[]
-        initArr4()
     }
 
     // example 2
     numbs: {
         arr : {
             0: 0
-            1: 1
+            1: 3
             2: 2
             3: 3
         }
@@ -93,15 +94,7 @@ extra {
             1: 0
         }
 
-        initArr2 : {
-            0: 0
-            1: 0
-            2: 0
-        }
-
         initArr3 : {
-        }
-        initArr4 : {
         }
 
     }
