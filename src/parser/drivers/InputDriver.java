@@ -16,11 +16,14 @@ import java.util.List;
 public class InputDriver {
 
     private String[] ARRAY_TYPES = new String[]{"[", "]", "(", ")"};
-    private String[] COMMENT_TYPES = new String[]{"//"};
+    private String[] COMMENT_TYPES = new String[]{"//", "\\\\"};
     private String[] STRING_TYPES = new String[]{"\'", "\""};
     private String[] EQUALS_TYPES = new String[]{"="};
     private String[] IGNORED_TYPES = new String[]{";"};
-    private String[] SPLIT_TYPES = new String[]{":", " ", "->", ">>"};
+    private String[] SPLIT_TYPES = new String[]{":", " "};
+    private String[] OPERATOR_TYPES = new String[]
+            {">>>", "<<<", "//", ">>", "<<", "->", "&&", "||", "=>", "<=",
+                    ">", "<", "+", "-", "/", "*", "|", "!", "?", "&", "%"};
 
     private boolean includeTxt = true;
 
@@ -51,8 +54,10 @@ public class InputDriver {
                     for (int i = 0; i < headers.length; i++)
                         headers[i] = headers[i].trim();
                     headerList.add(headers);
-                } else if (checkBody(trimmedLine, COMMENT_TYPES[0])) {
+                } else if (checkBody(trimmedLine, COMMENT_TYPES)) {
 
+                    trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+                    trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
                     tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
                             EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
 
@@ -103,6 +108,7 @@ public class InputDriver {
                                       String[] split) {
         String newBodyLine = replaceFor(bodyLine, eqSymbols, ":");
         newBodyLine = replaceFor(newBodyLine, ignored, " ");
+
         ArrayList<String> lineList = new ArrayList<>();
         newBodyLine = newBodyLine.trim();
         int ex = 0;
@@ -163,13 +169,22 @@ public class InputDriver {
     }
 
 
-    private static String tokeBodyLine(String toke, String[] arrType, String[] commentsType, String[] txtType, boolean includeTxt) {
-
-        for (String aCommentsType : commentsType)
-            if (toke.contains(aCommentsType)) {
-                toke = toke.substring(0, toke.indexOf(aCommentsType));
+    /**
+     * Experimental might be troubles
+     */
+    private static String removeComments(String line, String[] commentType) {
+        for (String aCommentsType : commentType)
+            if (line.contains(aCommentsType)) {
+                line = line.substring(0, line.indexOf(aCommentsType));
                 break;
             }
+        return line;
+    }
+
+
+    private static String tokeBodyLine(String toke, String[] arrType, String[] commentsType, String[] txtType, boolean includeTxt) {
+
+        toke = removeComments(toke, commentsType);
         for (int z = 0; z < arrType.length - 1; z += 2)
             if (toke.startsWith(arrType[z]) && toke.endsWith(arrType[z + 1])) return toke.trim();
         int[] start_end = new int[2];
@@ -185,6 +200,39 @@ public class InputDriver {
                     }
         if (actual >= 2) return toke.substring((start_end[0] + 1), start_end[1]);
         return toke.trim();
+    }
+
+
+    private static String prepareOperators(String line, String[] operators, String[] txtTypes) {
+
+        char[] arr = line.toCharArray();
+        StringBuilder stringBuffer = new StringBuilder();
+
+        boolean isOpen = false;
+        for (int i = 0; i < arr.length; i++) {
+            for (String txt : txtTypes)
+                if (txt.toCharArray()[0] == arr[i]) {
+                    isOpen = !isOpen;
+                    break;
+                }
+            if (!isOpen)
+                for (String st : operators) {
+                    char[] tested = st.toCharArray();
+                    int flag = 0;
+
+                    for (int k = 0; k < tested.length; k++)
+                        if (i + k < arr.length && arr[i + k] == tested[k]) flag += 1;
+                    if (flag == tested.length) {
+                        stringBuffer.append(' ');
+                        for (char t : tested) stringBuffer.append(t);
+                        stringBuffer.append(' ');
+                        i += flag;
+                        break;
+                    }
+                }
+            stringBuffer.append(arr[i]);
+        }
+        return stringBuffer.toString();
     }
 
 
@@ -311,6 +359,9 @@ public class InputDriver {
         return false;
     }
 
+    private static boolean checkCharMatch(char ch, char tested) {
+        return ch == tested;
+    }
 
     private static String replaceFor(String line, String[] symbols, String replaceSym) {
 
@@ -325,9 +376,11 @@ public class InputDriver {
         return line.contains("#");
     }
 
-    private static boolean checkBody(String line, String commentSym) {
+    private static boolean checkBody(String line, String[] commentSym) {
 
-        return !line.startsWith(commentSym) && !line.isEmpty();
+        int flag = 0;
+        for (String st : commentSym) if (line.startsWith(st) || line.isEmpty()) flag += 1;
+        return flag == 0;
     }
 
     private static boolean containsStrong(String data, String value) {

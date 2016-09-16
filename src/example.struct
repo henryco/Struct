@@ -14,7 +14,7 @@ name: {
                 importedTs "  import";
             }
         }
-        //int typoTest = 3
+        // int typoTest = 3
         struct_1.struct_2
         {
             struct_24 {
@@ -31,13 +31,15 @@ name: {
                 int val = 5;
             }
         }
-        link linkName
+        link linkName //test
 
         struct_5.struct_6.test = 3;
     }
 
     {
+        \\test
         tez = 5;
+        operation = 12+39 / 12 *3
     }
 
     field4 :
@@ -56,7 +58,7 @@ extra {
 
     //links below are same
     testLink: >> name >> field_3;
-    testLink2: name -> field_3;
+    testLink2: name-> field_3;
 
     // examples 1 and 2 are same
     // example 1
