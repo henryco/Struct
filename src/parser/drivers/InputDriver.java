@@ -22,7 +22,7 @@ public class InputDriver {
     private String[] IGNORED_TYPES = new String[]{";"};
     private String[] SPLIT_TYPES = new String[]{":", " "};
     private String[] OPERATOR_TYPES = new String[]
-            {">>>", "<<<", "//", ">>", "<<", "->", "&&", "||", "=>", "<=",
+            {">>>", "<<<", ">>", "<<", "->", "&&", "||", "=>", "<=",
                     ">", "<", "+", "-", "/", "*", "|", "!", "?", "&", "%"};
 
     private boolean includeTxt = true;
@@ -56,7 +56,7 @@ public class InputDriver {
                     headerList.add(headers);
                 } else if (checkBody(trimmedLine, COMMENT_TYPES)) {
 
-                    trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+                    trimmedLine = prepareOperators(trimmedLine, createMultiArray(COMMENT_TYPES, OPERATOR_TYPES), STRING_TYPES);
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
                     tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
                             EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
@@ -397,59 +397,48 @@ public class InputDriver {
     }
 
 
+
     protected String[] getARRAY_TYPES() {
         return ARRAY_TYPES;
     }
-
     protected InputDriver setARRAY_TYPES(String[] ARRAY_TYPES) {
         this.ARRAY_TYPES = ARRAY_TYPES;
         return this;
     }
-
     protected String[] getCOMMENT_TYPES() {
         return COMMENT_TYPES;
     }
-
     protected InputDriver setCOMMENT_TYPES(String[] COMMENT_TYPES) {
         this.COMMENT_TYPES = COMMENT_TYPES;
         return this;
     }
-
     protected String[] getSTRING_TYPES() {
         return STRING_TYPES;
     }
-
     protected InputDriver setSTRING_TYPES(String[] STRING_TYPES) {
         this.STRING_TYPES = STRING_TYPES;
         return this;
     }
-
     protected String[] getEQUALS_TYPES() {
         return EQUALS_TYPES;
     }
-
     protected InputDriver setEQUALS_TYPES(String[] EQUALS_TYPES) {
         this.EQUALS_TYPES = EQUALS_TYPES;
         return this;
     }
-
     protected String[] getIGNORED_TYPES() {
         return IGNORED_TYPES;
     }
-
     protected InputDriver setIGNORED_TYPES(String[] IGNORED_TYPES) {
         this.IGNORED_TYPES = IGNORED_TYPES;
         return this;
     }
-
     protected boolean isIncludeTxt() {
         return includeTxt;
     }
-
     protected InputDriver setIncludeTxt(boolean includeTxt) {
         this.includeTxt = includeTxt;
         return this;
     }
-
 
 }
