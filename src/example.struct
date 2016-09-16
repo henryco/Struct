@@ -5,7 +5,7 @@
 name: {
     field_1  5;
     {
-        typeName:field2:10
+        typeName:field2::10
 
         field_3 : "tex t fgg d "//comment1
         {
@@ -46,8 +46,8 @@ name: {
     {
         // other comment
         field5: 12
-        field6 : [df,d 5, '12 3']//comment3
-        field7 = (df, wse ,1.4 , " d")
+        field6 : new [df,d 5, '12 3']//comment3
+        field7 = new(df, wse ,1.4 , " d")
     }
 }
 
@@ -57,24 +57,28 @@ extra {
     size 45
 
     //links below are same
-    testLink: >> name >> field_3;
-    testLink2: name-> field_3;
+    testLink: name::field_3;
+    testLink2: name::field_3;
+
 
     // examples 1 and 2 are same
     // example 1
     numbs: {
-        arr [0,1,2,3];
-        other("34", " fg")
-        inter.call ["nope", 1]
-        initArr1[2]
-        initArr3[]
+        arr new [0,1,2,3];
+        other new("34", " fg")
+        inter.call new ["nope", 1]
+        initArr1 : new 2
+
+        initArr4 new
+        initArr5 []
+        initArr6 ()
     }
 
     // example 2
     numbs: {
         arr : {
             0: 0
-            1: 3
+            1: 1
             2: 2
             3: 3
         }
@@ -96,12 +100,85 @@ extra {
             1: 0
         }
 
-        initArr3 : {
+        initArr4 : {
+        }
+
+        initArr5 : {
+        }
+
+        initArr6 : {
+        }
+    }
+}
+
+
+// 1, 2, 3, 4, 5 are same
+
+// 1
+
+array = (new 2) -> 1
+
+// 2
+
+array = new 2
+array -> 1
+
+// 3
+
+array = new 2
+array::forEach(1)
+
+// 4
+
+array = new(0, 0)
+array::forEach(1)
+array::super::forEach(1)
+
+array <Utils::Array> : {
+    this : array;
+    super: Utils::Array(2, this)
+
+    0: 0
+    1: 0
+
+    return
+}
+
+
+
+Utils : {
+
+    Array(val, ob) : {
+        this = ob;
+        size = val;
+
+        def forEach(val) {
+            i: 0;
+
+            fun(i, ob, val) {
+                ob.i = val
+                i += 1
+                rec(i)
+            }
+
+            rec(in) {
+                i = in;
+                i < size | fun(i, this, val)
+                i == size | return
+                return
+            }
+
+            return
+        }
+        get(val) {
+            return 
         }
 
     }
 
 }
+
+
 
 
 

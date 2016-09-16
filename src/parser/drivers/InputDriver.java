@@ -59,7 +59,7 @@ public class InputDriver {
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
                     trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
                     //TODO add operator mark
-                    
+
                     tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
                             EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
 
@@ -232,7 +232,7 @@ public class InputDriver {
                         break;
                     }
                 }
-            stringBuffer.append(arr[i]);
+            if (i < arr.length) stringBuffer.append(arr[i]);
         }
         return stringBuffer.toString();
     }
