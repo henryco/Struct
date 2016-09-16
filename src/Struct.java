@@ -21,7 +21,7 @@ public class Struct {
         System.out.println(" ");
         data.forEach(l -> {
             for (String line : l)
-                System.out.print("<"+line+"> ");
+                System.out.print("|"+line+"| ");
             if (l.length > 0)
                 System.out.println("");
         });

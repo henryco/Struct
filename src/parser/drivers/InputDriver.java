@@ -56,8 +56,10 @@ public class InputDriver {
                     headerList.add(headers);
                 } else if (checkBody(trimmedLine, COMMENT_TYPES)) {
 
-                    trimmedLine = prepareOperators(trimmedLine, createMultiArray(COMMENT_TYPES, OPERATOR_TYPES), STRING_TYPES);
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
+                    trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+                    //TODO add operator mark
+                    
                     tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
                             EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
 
