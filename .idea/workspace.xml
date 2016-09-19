@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/example2.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/MainTMP.class" afterPath="$PROJECT_DIR$/out/production/Struct/MainTMP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/Struct.class" afterPath="$PROJECT_DIR$/out/production/Struct/Struct.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/container/StructContainer.class" afterPath="$PROJECT_DIR$/out/production/Struct/container/StructContainer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/example.struct" afterPath="$PROJECT_DIR$/out/production/Struct/example.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example.struct" afterPath="$PROJECT_DIR$/src/example.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTMP.java" afterPath="$PROJECT_DIR$/src/MainTMP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Struct.java" afterPath="$PROJECT_DIR$/src/Struct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/StructContainer.java" afterPath="$PROJECT_DIR$/src/container/StructContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/StructNode.java" afterPath="$PROJECT_DIR$/src/container/StructNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" afterPath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
     </list>
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +26,8 @@
       <file leaf-file-name="MainTMP.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            <state relative-caret-position="260">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -1181,8 +1170,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        <state relative-caret-position="260">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>

@@ -13,5 +13,6 @@ public class MainTMP {
 
       //  String forOut = container.mainNode.getStruct("one").getStruct("two").getPrimitive("text");
       //  System.out.println(forOut);
+        
     }
 }
