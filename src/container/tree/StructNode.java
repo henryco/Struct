@@ -1,4 +1,4 @@
-package container;
+package container.tree;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,7 +12,8 @@ import java.util.Map;
 public class StructNode {
 
     public final String name;
-    public StructNode parent = null;
+
+    private StructNode parent = null;
     private Map<String, Object> primitives = new HashMap<>();
     private Map<String, Object> structures = new HashMap<>();
 
@@ -54,12 +55,15 @@ public class StructNode {
     public <T extends StructNode> T getStruct(String name){
         return (T) this.structures.get(name);
     }
-
     @SuppressWarnings("unchecked")
     public <E> E get(String name) {
         if (primitives.containsKey(name)) return (E) primitives.get(name);
         if (structures.containsKey(name)) return (E) structures.get(name);
         if (this.name.equalsIgnoreCase(name)) return (E) this;
         else return (E) new Integer(-1);
+    }
+    @SuppressWarnings("unchecked")
+    public <T extends StructNode> T getParent() {
+        return (T) parent;
     }
 }

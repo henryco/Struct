@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/container/tree/StructTree.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Struct/container/StructNode.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/container/StructNode.java" afterPath="$PROJECT_DIR$/src/container/tree/StructNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/MainTMP.class" afterPath="$PROJECT_DIR$/out/production/Struct/MainTMP.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/container/StructContainer.class" afterPath="$PROJECT_DIR$/out/production/Struct/container/StructContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/parser/drivers/InputDriver.class" afterPath="$PROJECT_DIR$/out/production/Struct/parser/drivers/InputDriver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTMP.java" afterPath="$PROJECT_DIR$/src/MainTMP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/StructContainer.java" afterPath="$PROJECT_DIR$/src/container/StructContainer.java" />
     </list>
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,9 +34,38 @@
       <file leaf-file-name="MainTMP.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="220">
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StructTree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/container/tree/StructTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="419">
+              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+              <folding>
+                <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+                <element signature="method#get#0;class#StructNode#0" expanded="false" />
+                <element signature="e#1841#1871#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,7 +73,7 @@
       <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1180">
+            <state relative-caret-position="-880">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -54,24 +91,6 @@
                 <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
                 <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
                 <element signature="method#setIncludeTxt#0;class#InputDriver#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StructContainer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
-                <element signature="e#1881#1882#0" expanded="true" />
-                <element signature="e#1916#1917#0" expanded="true" />
-                <element signature="e#1923#1953#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
-                <element signature="e#2036#2037#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,8 +134,11 @@
         <option value="$PROJECT_DIR$/src/example.struct" />
         <option value="$PROJECT_DIR$/src/Struct.java" />
         <option value="$PROJECT_DIR$/src/container/StructNode.java" />
-        <option value="$PROJECT_DIR$/src/container/StructContainer.java" />
         <option value="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
+        <option value="$PROJECT_DIR$/src/container/tree/StructContainerTree.java" />
+        <option value="$PROJECT_DIR$/src/container/StructContainer.java" />
+        <option value="$PROJECT_DIR$/src/container/tree/StructNode.java" />
+        <option value="$PROJECT_DIR$/src/container/tree/StructTree.java" />
         <option value="$PROJECT_DIR$/src/MainTMP.java" />
       </list>
     </option>
@@ -319,6 +341,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="container" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Struct" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Struct" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="container" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tree" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -690,7 +734,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,31 +759,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
-            <element signature="e#1881#1882#0" expanded="true" />
-            <element signature="e#1916#1917#0" expanded="true" />
-            <element signature="e#1923#1953#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,7 +794,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -777,31 +819,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
-            <element signature="e#1881#1882#0" expanded="true" />
-            <element signature="e#1916#1917#0" expanded="true" />
-            <element signature="e#1923#1953#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -818,7 +854,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -848,15 +886,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -873,7 +910,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -911,15 +950,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -936,7 +974,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -974,15 +1014,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -999,7 +1038,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1037,15 +1078,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1115,38 +1155,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="206">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
           <folding>
-            <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-            <element signature="e#1209#1239#0" expanded="true" />
-            <element signature="e#1356#1386#0" expanded="true" />
-            <element signature="e#1504#1534#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
+    <entry file="file://$PROJECT_DIR$/src/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="419">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
-            <element signature="e#1881#1882#0" expanded="true" />
-            <element signature="e#1916#1917#0" expanded="true" />
-            <element signature="e#1923#1953#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="method#get#0;class#StructNode#0" expanded="false" />
+            <element signature="e#1841#1871#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1180">
+        <state relative-caret-position="-880">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1168,11 +1202,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="220">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
