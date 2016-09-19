@@ -13,9 +13,9 @@ public class Struct {
     private static final Struct thisDriver = new Struct();
 
 
-    public static Struct printDataFile(List<String[]>[] arr) {
+    public static List<String[]>[] printDataFile(List<String[]>[] arr) {
         Arrays.stream(arr).forEach(Struct::printData);
-        return thisDriver;
+        return arr;
     }
     private static Struct printData(List<String[]> data) {
         System.out.println(" ");

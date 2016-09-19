@@ -1,13 +1,12 @@
 package parser.drivers;
 
-import container.StructNode;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -25,7 +24,7 @@ public class InputDriver {
             {">>>", "<<<", ">>", "<<", "->", "&&", "||", "=>", "<=",
                     ">", "<", "+", "-", "/", "*", "|", "!", "?", "&", "%"};
 
-    private boolean includeTxt = true;
+    private boolean includeTxt = false;
 
     InputDriver() {
 
@@ -33,8 +32,6 @@ public class InputDriver {
 
 
     public List<String[]>[] readStructData(String url) {
-
-        StructNode dataStructure = new StructNode("main");
 
         List<String[]> bodyList = new ArrayList<>();
         List<String[]> headerList = new ArrayList<>();
@@ -69,16 +66,12 @@ public class InputDriver {
                 }
             }
             bodyList = prepareBrackets(bodyList, ARRAY_TYPES, STRING_TYPES, includeTxt);
-
-            ArrayList<String[]> tmp = new ArrayList<>();
-            bodyList.forEach(b -> {
-                if (b.length > 0) tmp.add(b);
-            });
-            bodyList = tmp;
-            bodyList = new ArrayList<>(prepareDots(bodyList));
+            bodyList = prepareArrayConstructors(prepareDots(
+                    bodyList.stream().filter(b -> b.length > 0).
+                            collect(Collectors.toCollection(ArrayList::new))), ARRAY_TYPES);
 
             long time1 = System.nanoTime() - time0;
-            String finish = "Compiled INPUT_DRIVER: " + time1 + " ns";
+            String finish = "Compiled INPUT_DRIVER in: " + time1 + " ns";
             printUnderlined(finish, "#");
 
         } catch (Exception e) {
@@ -97,12 +90,6 @@ public class InputDriver {
         System.out.println(msg);
         for (int i = 0; i < msg.length(); i++) System.out.print(sym);
         System.out.println("");
-    }
-
-
-    private static boolean needRefactor(List<String[]> list) {
-        for (String[] aList : list) if (aList[0].contains(".")) return true;
-        return false;
     }
 
 
@@ -164,10 +151,8 @@ public class InputDriver {
             for (String aSrcList : srcList) {
                 String[] split = aSrcList.split(aSec);
                 Arrays.stream(split).forEach(tmp::add);
-            }
-            srcList = new ArrayList<>(tmp);
-        }
-        return srcList;
+            }   srcList = new ArrayList<>(tmp);
+        }   return srcList;
     }
 
 
@@ -261,6 +246,9 @@ public class InputDriver {
     }
 
 
+    /**
+     * Weak part of code, need to be replaced with better one, but later...
+     */
     private static List<String[]> prepareBrackets(List<String[]> dataList, String[] arrType,
                                                   String[] txtType, boolean includeTXT) {
 
@@ -316,9 +304,11 @@ public class InputDriver {
     private static List<String[]> prepareDots(List<String[]> dataList) {
 
         List<String[]> closure = new ArrayList<>();
+        boolean oneMoreLoop = false;
         for (int i = 0; i < dataList.size(); i++) {
             String[] arr = dataList.get(i);
             if (arr.length > 1 && replaceFor(arr[0], new String[]{"."}, ",").contains(",")) {
+                oneMoreLoop = true;
                 String[] structFields = replaceFor(arr[0], new String[]{"."}, ",").split(",");
                 int closures = structFields.length - 1;
                 int forDelete = i + 1;
@@ -351,16 +341,73 @@ public class InputDriver {
             } else closure.add(arr);
         }
         /* Possible may need hard clone List */
-        if (needRefactor(closure)) return prepareDots(closure);
+        if (oneMoreLoop) return prepareDots(closure);
         return closure;
     }
 
 
+    private static List<String[]> prepareArrayConstructors(List<String[]> dataList, String[] arrTypes) {
+
+        List<String[]> lines = new ArrayList<>();
+        boolean oneMoreLoop = false;
+        for (String[] line : dataList) {
+            if (checkStartEnd(line[line.length - 1], arrTypes)) {
+                oneMoreLoop = true;
+                String word = line[line.length - 1].substring(1, line[line.length - 1].length() - 1);
+                String[] arrWords = prepareInternalArray(word.split(","), arrTypes);
+                line[line.length - 1] = "{";
+                lines.add(line);
+                for (int z = 0; z < arrWords.length; z++)
+                    lines.add(new String[]{Integer.toString(z), arrWords[z]});
+                lines.add(new String[]{"}"});
+            } else lines.add(line);
+        }
+        /* Possible may need hard clone List */
+        if (oneMoreLoop) return prepareArrayConstructors(lines, arrTypes);
+        return lines;
+    }
+
+
+    private static String[] prepareInternalArray(String[] arrWords, String[] arrTypes) {
+
+        List<String> words = new ArrayList<>();
+        for (int i = 0; i < arrWords.length; i++) {
+            if (checkStart(arrWords[i], arrTypes)) {
+                if (checkEnd(arrWords[i], arrTypes)) words.add(arrWords[i]);
+                else {
+                    StringBuilder buffer = new StringBuilder();
+                    buffer.append(arrWords[i]);
+                    for (int z = i + 1; z < arrWords.length; z++) {
+                        i = z;
+                        buffer.append(",").append(arrWords[z]);
+                        if (checkEnd(arrWords[z], arrTypes)) break;
+                    }
+                    words.add(buffer.toString());
+                }
+            } else words.add(arrWords[i]);
+        }   return words.toArray(new String[words.size()]);
+    }
+
+
+    private static boolean checkStartEnd(String word, String[] tests) {
+        for (int k = 0; k < tests.length - 1; k += 2)
+            if (word.startsWith(tests[k]) && word.endsWith(tests[k+1])) return true;
+        return false;
+    }
+    private static boolean checkStart(String word, String[] tests) {
+        for (int k = 0; k < tests.length - 1; k += 2)
+            if (word.startsWith(tests[k])) return true;
+        return false;
+    }
+    private static boolean checkEnd(String word, String[] tests) {
+        for (int k = 0; k < tests.length - 1; k += 2)
+            if (word.endsWith(tests[k+1])) return true;
+        return false;
+    }
     private static boolean checkCharMatch(char ch, String[] type) {
         for (String tp : type) if (ch == tp.toCharArray()[0]) return true;
         return false;
     }
-
     private static boolean checkCharMatch(char ch, char tested) {
         return ch == tested;
     }

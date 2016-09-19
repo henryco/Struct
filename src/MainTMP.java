@@ -9,10 +9,9 @@ public class MainTMP {
 
     public static void main(String[] args) {
 
-        Struct.printDataFile(Struct.in.readStructData("src/example.struct"));
+        StructContainer container = new StructContainer(Struct.printDataFile(Struct.in.readStructData("src/example2.struct")));
 
-        StructContainer container = new StructContainer();
-
-     //   System.out.println(container.mainNode.g);
+      //  String forOut = container.mainNode.getStruct("one").getStruct("two").getPrimitive("text");
+      //  System.out.println(forOut);
     }
 }

@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/example2.struct" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/MainTMP.class" afterPath="$PROJECT_DIR$/out/production/Struct/MainTMP.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/Struct.class" afterPath="$PROJECT_DIR$/out/production/Struct/Struct.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/container/StructContainer.class" afterPath="$PROJECT_DIR$/out/production/Struct/container/StructContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/example.struct" afterPath="$PROJECT_DIR$/out/production/Struct/example.struct" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example.struct" afterPath="$PROJECT_DIR$/src/example.struct" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTMP.java" afterPath="$PROJECT_DIR$/src/MainTMP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Struct.java" afterPath="$PROJECT_DIR$/src/Struct.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/StructContainer.java" afterPath="$PROJECT_DIR$/src/container/StructContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/container/StructNode.java" afterPath="$PROJECT_DIR$/src/container/StructNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" afterPath="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
     </list>
     <ignored path="Struct.iws" />
@@ -23,86 +33,62 @@
     <favorites_list name="Struct" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7174699">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MainTMP.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2820">
-                  <caret line="197" column="56" selection-start-line="197" selection-start-column="56" selection-end-line="197" selection-end-column="56" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#3100#3130#1" expanded="true" />
-                    <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-                    <element signature="e#13686#13687#0" expanded="true" />
-                    <element signature="e#13721#13722#0" expanded="true" />
-                    <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
-                    <element signature="method#setIncludeTxt#0;class#InputDriver#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StructContainer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="80">
-                  <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                    <element signature="docComment;class#StructNode#0" expanded="false" />
-                    <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="example.struct" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/example.struct">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="580">
-                  <caret line="170" column="18" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainTMP.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1180">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3022#3052#1" expanded="true" />
+                <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#checkStartEnd#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#checkStart#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#checkEnd#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#checkCharMatch#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
+                <element signature="method#setIncludeTxt#0;class#InputDriver#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StructContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
+                <element signature="e#1881#1882#0" expanded="true" />
+                <element signature="e#1916#1917#0" expanded="true" />
+                <element signature="e#1923#1953#0" expanded="true" />
+                <element signature="e#1992#1993#0" expanded="true" />
+                <element signature="e#2036#2037#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -137,12 +123,12 @@
         <option value="$PROJECT_DIR$/src/parser/dataType/JavaType.java" />
         <option value="$PROJECT_DIR$/src/parser/dataType/StructType.java" />
         <option value="$PROJECT_DIR$/src/parser/dataType/DataType.java" />
-        <option value="$PROJECT_DIR$/src/container/StructContainer.java" />
-        <option value="$PROJECT_DIR$/src/container/StructNode.java" />
-        <option value="$PROJECT_DIR$/src/MainTMP.java" />
-        <option value="$PROJECT_DIR$/src/Struct.java" />
-        <option value="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
         <option value="$PROJECT_DIR$/src/example.struct" />
+        <option value="$PROJECT_DIR$/src/Struct.java" />
+        <option value="$PROJECT_DIR$/src/container/StructNode.java" />
+        <option value="$PROJECT_DIR$/src/container/StructContainer.java" />
+        <option value="$PROJECT_DIR$/src/parser/drivers/InputDriver.java" />
+        <option value="$PROJECT_DIR$/src/MainTMP.java" />
       </list>
     </option>
   </component>
@@ -256,7 +242,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -350,6 +335,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,6 +343,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last.edited.regexp" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -668,12 +655,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32135728" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32135728" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283433" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.113247864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -685,7 +673,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="100" y="68" width="1720" height="912" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -720,14 +707,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3220">
-          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+        <state relative-caret-position="3940">
+          <caret line="197" column="56" selection-start-line="197" selection-start-column="56" selection-end-line="197" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3100#3130#1" expanded="true" />
             <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13721#13722#0" expanded="true" />
             <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
             <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
@@ -746,6 +730,12 @@
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
+            <element signature="e#1923#1953#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -755,9 +745,74 @@
         <state relative-caret-position="80">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructNode#0" expanded="false" />
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example.struct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3220">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setCOMMENT_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setSTRING_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setEQUALS_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setIGNORED_TYPES#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#setIncludeTxt#0;class#InputDriver#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
+            <element signature="e#1923#1953#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -784,10 +839,7 @@
           <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3100#3130#1" expanded="true" />
             <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13721#13722#0" expanded="true" />
             <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
             <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
@@ -812,9 +864,10 @@
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructNode#0" expanded="false" />
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -841,10 +894,7 @@
           <caret line="332" column="9" selection-start-line="332" selection-start-column="9" selection-end-line="332" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3100#3130#1" expanded="true" />
             <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13721#13722#0" expanded="true" />
             <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
             <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
@@ -877,9 +927,10 @@
         <state relative-caret-position="200">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructNode#0" expanded="false" />
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -906,10 +957,7 @@
           <caret line="336" column="0" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3100#3130#1" expanded="true" />
             <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13721#13722#0" expanded="true" />
             <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
             <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
@@ -942,9 +990,10 @@
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructNode#0" expanded="false" />
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -971,10 +1020,7 @@
           <caret line="336" column="0" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3100#3130#1" expanded="true" />
             <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13721#13722#0" expanded="true" />
             <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
             <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
@@ -1007,9 +1053,10 @@
         <state relative-caret-position="180">
           <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructNode#0" expanded="false" />
             <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1027,14 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parser/drivers/Drivers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1060,56 +1099,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
+    <entry file="file://$PROJECT_DIR$/src/example.struct">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parser/drivers/Drivers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructNode#0" expanded="false" />
-            <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
-          </folding>
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Struct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+        <state relative-caret-position="180">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding>
             <element signature="method#printDataFile#0;class#Struct#0" expanded="false" />
+            <element signature="method#printData#0;class#Struct#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
+    <entry file="file://$PROJECT_DIR$/src/container/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="-81">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding>
+            <element signature="method#StructNode#1;class#StructNode#0" expanded="false" />
+            <element signature="e#1209#1239#0" expanded="true" />
+            <element signature="e#1356#1386#0" expanded="true" />
+            <element signature="e#1504#1534#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/container/StructContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="260">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#printUnderlined#0;class#StructContainer#0" expanded="false" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
+            <element signature="e#1923#1953#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2036#2037#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/parser/drivers/InputDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2820">
-          <caret line="197" column="56" selection-start-line="197" selection-start-column="56" selection-end-line="197" selection-end-column="56" />
+        <state relative-caret-position="-1180">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3100#3130#1" expanded="true" />
+            <element signature="e#3022#3052#1" expanded="true" />
             <element signature="method#printUnderlined#0;class#InputDriver#0" expanded="false" />
-            <element signature="e#13686#13687#0" expanded="true" />
-            <element signature="e#13721#13722#0" expanded="true" />
+            <element signature="method#checkStartEnd#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#checkStart#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#checkEnd#0;class#InputDriver#0" expanded="false" />
+            <element signature="method#checkCharMatch#0;class#InputDriver#0" expanded="false" />
             <element signature="method#containsStrong#0;class#InputDriver#0" expanded="false" />
             <element signature="method#createMultiArray#0;class#InputDriver#0" expanded="false" />
             <element signature="method#setARRAY_TYPES#0;class#InputDriver#0" expanded="false" />
@@ -1122,10 +1179,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/example.struct">
+    <entry file="file://$PROJECT_DIR$/src/MainTMP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="170" column="18" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
+        <state relative-caret-position="240">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding />
         </state>
       </provider>

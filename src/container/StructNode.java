@@ -46,16 +46,16 @@ public class StructNode {
         return this;
     }
 
-    /* maybe array, so use generics */
-    public <T> T getPrimitive(String name) {
+    @SuppressWarnings("unchecked")
+    public <T extends String> T getPrimitive(String name) {
         return (T) this.primitives.get(name);
     }
-
-    /* maybe array, so use generics */
-    public <T> T getStruct(String name){
+    @SuppressWarnings("unchecked")
+    public <T extends StructNode> T getStruct(String name){
         return (T) this.structures.get(name);
     }
 
+    @SuppressWarnings("unchecked")
     public <E> E get(String name) {
         if (primitives.containsKey(name)) return (E) primitives.get(name);
         if (structures.containsKey(name)) return (E) structures.get(name);
