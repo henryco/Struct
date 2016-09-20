@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Struct:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Struct_jar</output-path>
+    <root id="archive" name="Struct.jar">
+      <element id="module-output" name="Struct" />
+    </root>
+  </artifact>
+</component>
