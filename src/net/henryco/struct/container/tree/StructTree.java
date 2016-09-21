@@ -34,9 +34,13 @@ public class StructTree {
 
         for (String[] line : dataList) {
             if (line[line.length - 1].endsWith("{")) {
-                StructNode node = new StructNode(actual, line[line.length - 2]);
-                actual.addStructure(node);
-                storage.put(node.name, node);
+                StructNode node;
+                if (!actual.contains(line[line.length - 2])) {
+                    node = new StructNode(actual, line[line.length - 2]);
+                    actual.addStructure(node);
+                    storage.put(node.name, node);
+                }
+                else node = actual.getStruct(line[line.length - 2]);
                 actual = node;
             }
             else {

@@ -66,4 +66,7 @@ public class StructNode {
     public <T extends StructNode> T getParent() {
         return (T) parent;
     }
+    public boolean contains(String name) {
+        return structures.containsKey(name);
+    }
 }

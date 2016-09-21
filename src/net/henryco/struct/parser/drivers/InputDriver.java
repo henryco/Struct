@@ -152,8 +152,10 @@ public class InputDriver {
             for (String aSrcList : srcList) {
                 String[] split = aSrcList.split(aSec);
                 Arrays.stream(split).forEach(tmp::add);
-            }   srcList = new ArrayList<>(tmp);
-        }   return srcList;
+            }
+            srcList = new ArrayList<>(tmp);
+        }
+        return srcList;
     }
 
 
@@ -374,7 +376,6 @@ public class InputDriver {
         return lines;
     }
 
-
     private static String[] prepareInternalArray(String[] arrWords, String[] arrTypes) {
 
         List<String> words = new ArrayList<>();
@@ -392,7 +393,8 @@ public class InputDriver {
                     words.add(buffer.toString());
                 }
             } else words.add(arrWords[i]);
-        }   return  words.toArray(new String[words.size()]);
+        }
+        return words.toArray(new String[words.size()]);
     }
 
     private static String[] softSplit(String word, String[] symbols) {
@@ -407,7 +409,7 @@ public class InputDriver {
                     open += 1;
                     z += 1;
                     break;
-                } else if (arr[z] == symbols[i+1].charAt(0)) {
+                } else if (arr[z] == symbols[i + 1].charAt(0)) {
                     builder2.append(arr[z]);
                     open -= 1;
                     z += 1;
@@ -417,7 +419,8 @@ public class InputDriver {
                 if (open == 0) builder1.append(arr[z]);
                 else if (open > 0) builder2.append(arr[z]);
             }
-        }   return new String[]{builder1.toString(), builder2.toString()};
+        }
+        return new String[]{builder1.toString(), builder2.toString()};
     }
 
     private static boolean checkStartMatches(String word, String[] tests) {
@@ -428,23 +431,27 @@ public class InputDriver {
 
     private static boolean checkStartEnd(String word, String[] tests) {
         for (int k = 0; k < tests.length - 1; k += 2)
-            if (word.startsWith(tests[k]) && word.endsWith(tests[k+1])) return true;
+            if (word.startsWith(tests[k]) && word.endsWith(tests[k + 1])) return true;
         return false;
     }
+
     private static boolean checkStart(String word, String[] tests) {
         for (int k = 0; k < tests.length - 1; k += 2)
             if (word.startsWith(tests[k])) return true;
         return false;
     }
+
     private static boolean checkEnd(String word, String[] tests) {
         for (int k = 0; k < tests.length - 1; k += 2)
-            if (word.endsWith(tests[k+1])) return true;
+            if (word.endsWith(tests[k + 1])) return true;
         return false;
     }
+
     private static boolean checkCharMatch(char ch, String[] type) {
         for (String tp : type) if (ch == tp.toCharArray()[0]) return true;
         return false;
     }
+
     private static boolean checkCharMatch(char ch, char tested) {
         return ch == tested;
     }
@@ -483,45 +490,55 @@ public class InputDriver {
     }
 
 
-
     protected String[] getARRAY_TYPES() {
         return ARRAY_TYPES;
     }
+
     protected InputDriver setARRAY_TYPES(String[] ARRAY_TYPES) {
         this.ARRAY_TYPES = ARRAY_TYPES;
         return this;
     }
+
     protected String[] getCOMMENT_TYPES() {
         return COMMENT_TYPES;
     }
+
     protected InputDriver setCOMMENT_TYPES(String[] COMMENT_TYPES) {
         this.COMMENT_TYPES = COMMENT_TYPES;
         return this;
     }
+
     protected String[] getSTRING_TYPES() {
         return STRING_TYPES;
     }
+
     protected InputDriver setSTRING_TYPES(String[] STRING_TYPES) {
         this.STRING_TYPES = STRING_TYPES;
         return this;
     }
+
     protected String[] getEQUALS_TYPES() {
         return EQUALS_TYPES;
     }
+
     protected InputDriver setEQUALS_TYPES(String[] EQUALS_TYPES) {
         this.EQUALS_TYPES = EQUALS_TYPES;
         return this;
     }
+
     protected String[] getIGNORED_TYPES() {
         return IGNORED_TYPES;
     }
+
     protected InputDriver setIGNORED_TYPES(String[] IGNORED_TYPES) {
         this.IGNORED_TYPES = IGNORED_TYPES;
         return this;
     }
+
     protected boolean isIncludeTxt() {
         return includeTxt;
     }
+
     protected InputDriver setIncludeTxt(boolean includeTxt) {
         this.includeTxt = includeTxt;
         return this;
