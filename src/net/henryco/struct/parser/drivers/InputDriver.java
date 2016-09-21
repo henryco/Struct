@@ -214,7 +214,11 @@ public class InputDriver {
                         break;
                     }
                 }
-            if (i < arr.length && arr[i] != ' ') builder.append(arr[i]);
+          //  if (i < arr.length && arr[i] != ' ') builder.append(arr[i]);
+			if (i < arr.length) {
+				if (!findExc && arr[i] != ' ') builder.append(arr[i]);
+				else if (findExc) builder.append(arr[i]);
+			}
         }
         if (needRepeat) return prepareArrayIndexes(builder.toString(), arrIndex, exc);
         return builder.toString();
