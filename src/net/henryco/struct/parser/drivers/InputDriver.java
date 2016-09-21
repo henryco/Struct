@@ -87,6 +87,7 @@ public class InputDriver {
     }
 
     private static void printUnderlined(String msg, String sym) {
+        System.out.println("");
         System.out.println(msg);
         for (int i = 0; i < msg.length(); i++) System.out.print(sym);
         System.out.println("");
@@ -357,8 +358,14 @@ public class InputDriver {
                 String[] arrWords = prepareInternalArray(word.split(","), arrTypes);
                 line[line.length - 1] = "{";
                 lines.add(line);
-                for (int z = 0; z < arrWords.length; z++)
-                    lines.add(new String[]{Integer.toString(z), arrWords[z]});
+                int outNumb = 0;
+                for (String arrWord : arrWords) {
+                    if (!checkStart(arrWord, arrTypes) && checkEnd(arrWord, arrTypes)) {
+                        outNumb -= 1;
+                        lines.add(softSplit(arrWord, arrTypes));
+                    } else lines.add(new String[]{Integer.toString(outNumb), arrWord});
+                    outNumb += 1;
+                }
                 lines.add(new String[]{"}"});
             } else lines.add(line);
         }
@@ -372,7 +379,7 @@ public class InputDriver {
 
         List<String> words = new ArrayList<>();
         for (int i = 0; i < arrWords.length; i++) {
-            if (checkStart(arrWords[i], arrTypes)) {
+            if (checkStart(arrWords[i], arrTypes) || checkStartMatches(arrWords[i], arrTypes)) {
                 if (checkEnd(arrWords[i], arrTypes)) words.add(arrWords[i]);
                 else {
                     StringBuilder buffer = new StringBuilder();
@@ -385,9 +392,39 @@ public class InputDriver {
                     words.add(buffer.toString());
                 }
             } else words.add(arrWords[i]);
-        }   return words.toArray(new String[words.size()]);
+        }   return  words.toArray(new String[words.size()]);
     }
 
+    private static String[] softSplit(String word, String[] symbols) {
+        StringBuilder builder1 = new StringBuilder();
+        StringBuilder builder2 = new StringBuilder();
+        char[] arr = word.toCharArray();
+        int open = 0;
+        for (int z = 0; z < arr.length; z += 1) {
+            for (int i = 0; i < symbols.length - 1; i += 2)
+                if (arr[z] == symbols[i].charAt(0)) {
+                    builder2.append(arr[z]);
+                    open += 1;
+                    z += 1;
+                    break;
+                } else if (arr[z] == symbols[i+1].charAt(0)) {
+                    builder2.append(arr[z]);
+                    open -= 1;
+                    z += 1;
+                    break;
+                }
+            if (z < arr.length) {
+                if (open == 0) builder1.append(arr[z]);
+                else if (open > 0) builder2.append(arr[z]);
+            }
+        }   return new String[]{builder1.toString(), builder2.toString()};
+    }
+
+    private static boolean checkStartMatches(String word, String[] tests) {
+        for (int i = 0; i < tests.length - 1; i += 2)
+            if (word.contains(tests[i])) return true;
+        return false;
+    }
 
     private static boolean checkStartEnd(String word, String[] tests) {
         for (int k = 0; k < tests.length - 1; k += 2)

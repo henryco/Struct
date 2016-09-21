@@ -1,19 +1,9 @@
-#type : struct
+// Escapy light system config
+#type struct
 
-light1 : {
-	test: 1
-	test2: "45 4"
-			
-	outa.array = [1, 3, " a 34 5 z" , 5, 'test']
+test.te [[fg,'f',[34,3]],45, fg]
 
-}
+lights.containers: [(type [screenDodge, true]), type [strongSoftLight, false]]
 
-testo [45, "344", ["wow ", 3], 5]
 
-one.two {
-	text: ' fg f'
-	tes {
-		one: 3
-	}
-	ew.vf = 4
-}
+
