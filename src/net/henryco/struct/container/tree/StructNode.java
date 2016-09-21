@@ -1,5 +1,7 @@
 package net.henryco.struct.container.tree;
 
+import net.henryco.struct.container.exceptions.StructContainerException;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,19 +50,21 @@ public class StructNode {
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends String> T getPrimitive(String name) {
+    public <T extends String> T getPrimitive(String name) throws StructContainerException {
+        if (!this.primitives.containsKey(name)) throw new StructContainerException(name);
         return (T) this.primitives.get(name);
     }
     @SuppressWarnings("unchecked")
-    public <T extends StructNode> T getStruct(String name){
+    public <T extends StructNode> T getStruct(String name) throws StructContainerException {
+        if (!this.structures.containsKey(name)) throw new StructContainerException(name);
         return (T) this.structures.get(name);
     }
     @SuppressWarnings("unchecked")
-    public <E> E get(String name) {
+    public <E> E get(String name) throws StructContainerException {
         if (primitives.containsKey(name)) return (E) primitives.get(name);
         if (structures.containsKey(name)) return (E) structures.get(name);
         if (this.name.equalsIgnoreCase(name)) return (E) this;
-        else return (E) new Integer(-1);
+        else throw new StructContainerException(name);
     }
     @SuppressWarnings("unchecked")
     public <T extends StructNode> T getParent() {

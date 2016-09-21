@@ -3,7 +3,7 @@
 
 lights.containers: [(type[screenDodge, true]), (type[strongSoftLight, false])]
 
-lights.containers[8]: 5
+lights.containers[0][type][2]: 5
 
 
 

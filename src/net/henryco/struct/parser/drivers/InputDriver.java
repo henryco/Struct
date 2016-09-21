@@ -57,7 +57,7 @@ public class InputDriver {
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
                     trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
                     trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
-                    System.out.println(trimmedLine);
+
                     //TODO add operator mark
 
                     String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
@@ -195,25 +195,29 @@ public class InputDriver {
     }
 
     private static String prepareArrayIndexes(String line, String[] arrIndex, String[] exc) {
-
         StringBuilder builder = new StringBuilder();
         char[] arr = line.toCharArray();
         boolean findExc = false;
+        boolean needRepeat = false;
         for (int i = 0; i < arr.length; i += 1) {
             if (!findExc && checkCharMatch(arr[i], exc)) findExc = true;
-            if (!findExc) {
+            if (!findExc)
                 for (int z = 0; z < arrIndex.length - 1; z += 2) {
                     if (arr[i] == arrIndex[z].charAt(0)) {
                         i += 1;
                         builder.append('.');
+                        needRepeat = true;
                         break;
                     } else if (arr[i] == arrIndex[z + 1].charAt(0)) {
                         i += 1;
+                        needRepeat = true;
                         break;
                     }
                 }
-            } if (i < arr.length && arr[i] != ' ') builder.append(arr[i]);
-        }   return builder.toString();
+            if (i < arr.length && arr[i] != ' ') builder.append(arr[i]);
+        }
+        if (needRepeat) return prepareArrayIndexes(builder.toString(), arrIndex, exc);
+        return builder.toString();
     }
 
     private static String prepareOperators(String line, String[] operators, String[] txtTypes) {

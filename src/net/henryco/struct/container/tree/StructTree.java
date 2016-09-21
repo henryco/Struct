@@ -74,4 +74,13 @@ public class StructTree {
         return (T) storage.get(name);
     }
 
+
+    @Override
+    public String toString(){
+
+        String num = "\nContainer size: "+Integer.toString(storage.size())+"\n--\n";
+        String ne = storage.toString().replaceAll(", ", "\n");
+        return num+ne.substring(1, ne.length()-1)+"\n--\n";
+    }
+
 }
