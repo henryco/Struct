@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.jar.Pack200;
 import java.util.stream.Collectors;
 
 
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
  */
 public class InputDriver {
 
+    private String[] INDEX_TYPES = new String[]{"[", "]"};
     private String[] ARRAY_TYPES = new String[]{"[", "]", "(", ")"};
     private String[] COMMENT_TYPES = new String[]{"//", "\\\\"};
     private String[] STRING_TYPES = new String[]{"\'", "\""};
@@ -42,7 +44,6 @@ public class InputDriver {
             time0 = System.nanoTime();
 
             while ((textLine = br.readLine()) != null) {
-                String[] tokeLine;
                 String trimmedLine = textLine.trim();
 
                 if (checkImports(trimmedLine)) {
@@ -55,11 +56,12 @@ public class InputDriver {
 
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
                     trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+                    trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
+                    System.out.println(trimmedLine);
                     //TODO add operator mark
 
-                    tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
+                    String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
                             EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-
                     for (int i = 0; i < tokeLine.length; i++)
                         tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
                     bodyList.add(tokeLine);
@@ -192,6 +194,27 @@ public class InputDriver {
         return toke.trim();
     }
 
+    private static String prepareArrayIndexes(String line, String[] arrIndex, String[] exc) {
+
+        StringBuilder builder = new StringBuilder();
+        char[] arr = line.toCharArray();
+        boolean findExc = false;
+        for (int i = 0; i < arr.length; i += 1) {
+            if (!findExc && checkCharMatch(arr[i], exc)) findExc = true;
+            if (!findExc) {
+                for (int z = 0; z < arrIndex.length - 1; z += 2) {
+                    if (arr[i] == arrIndex[z].charAt(0)) {
+                        i += 1;
+                        builder.append('.');
+                        break;
+                    } else if (arr[i] == arrIndex[z + 1].charAt(0)) {
+                        i += 1;
+                        break;
+                    }
+                }
+            } if (i < arr.length && arr[i] != ' ') builder.append(arr[i]);
+        }   return builder.toString();
+    }
 
     private static String prepareOperators(String line, String[] operators, String[] txtTypes) {
 

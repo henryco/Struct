@@ -1,9 +1,11 @@
 // Escapy light system config
 #type struct
 
-test.te [[fg,'f',[34,3]],45, fg]
+lights.containers: [(type[screenDodge, true]), (type[strongSoftLight, false])]
 
-lights.containers: [(type [screenDodge, true]), type [strongSoftLight, false]]
+lights.containers[8]: 5
+
+
 
 
 
