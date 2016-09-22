@@ -6,14 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examples/example2.struct" afterPath="$PROJECT_DIR$/src/examples/example2.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StaticVoidMainEnter.java" afterPath="$PROJECT_DIR$/src/StaticVoidMainEnter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/exceptions/StructContainerException.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/exceptions/StructContainerException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" />
-    </list>
+    <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="" />
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -730,7 +723,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-32" width="1920" height="1112" extended-state="1" />
+    <frame x="0" y="-32" width="1920" height="1112" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
