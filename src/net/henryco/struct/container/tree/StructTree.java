@@ -77,10 +77,7 @@ public class StructTree {
 
     @Override
     public String toString(){
-
-        String num = "\nContainer size: "+Integer.toString(storage.size())+"\n--\n";
-        String ne = storage.toString().replaceAll(", ", "\n");
-        return num+ne.substring(1, ne.length()-1)+"\n--\n";
+		return "\n:: TREE VIEW ::\n"+this.mainNode.toString()+"\n:: END TREE VIEW ::\n";
     }
 
 }

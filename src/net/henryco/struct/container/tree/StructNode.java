@@ -14,6 +14,8 @@ import java.util.Map;
 public class StructNode {
 
     public final String name;
+	private static final int indent = 1;
+	private static final String space = "_";
 
     private StructNode parent = null;
     private Map<String, Object> primitives = new HashMap<>();
@@ -73,4 +75,27 @@ public class StructNode {
     public boolean contains(String name) {
         return structures.containsKey(name);
     }
+
+
+    public String printTreeView(int increment, String space) {
+
+		String spaces = "";
+		for (int i = 0; i < increment; i++) spaces = spaces +""+space;
+		String sName = spaces + this.name;
+		String[] primKeySet = primitives.keySet().toArray(new String[primitives.size()]);
+		for (String key : primKeySet)
+			sName += "\n"+spaces+""+space+key+": "+this.getPrimitive(key);
+		String[] structKeySet = structures.keySet().toArray(new String[structures.size()]);
+		for (String key : structKeySet) {
+			StructNode child = this.getStruct(key);
+			sName += "\n" + child.printTreeView(increment + indent, space);
+		}
+		return sName;
+	}
+
+	@Override
+	public String toString(){
+		return printTreeView(0, space);
+	}
+
 }

@@ -16,6 +16,6 @@ public class StructContainerException extends RuntimeException {
     }
 
     public static String traceMSG(String varName) {
-        return "invalid filed \" "+varName+" \"";
+        return "invalid field \" "+varName+" \"";
     }
 }
