@@ -2,9 +2,7 @@ package net.henryco.struct.container.tree;
 
 import net.henryco.struct.container.exceptions.StructContainerException;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Henry on 09/09/16.
@@ -72,10 +70,30 @@ public class StructNode {
     public <T extends StructNode> T getParent() {
         return (T) parent;
     }
-    public boolean contains(String name) {
-        return structures.containsKey(name);
-    }
 
+    public boolean contains(String name) {
+		return structures.containsKey(name) || primitives.containsKey(name);
+	}
+	public boolean containsStruct(String name) {
+		return structures.containsKey(name);
+	}
+	public boolean containsPrimitive(String name) {
+		return primitives.containsKey(name);
+	}
+
+	public String[] getPrimitiveChild() {
+		return primitives.keySet().toArray(new String[primitives.keySet().size()]);
+	}
+	public String[] getStructChild() {
+		return structures.keySet().toArray(new String[structures.keySet().size()]);
+	}
+
+	public String[] getChild() {
+		List<String> primList = new ArrayList<>();
+		Arrays.stream(this.getPrimitiveChild()).forEach(primList::add);
+		Arrays.stream(this.getStructChild()).forEach(primList::add);
+		return primList.toArray(new String[primList.size()]);
+	}
 
     public String printTreeView(int increment, String space) {
 
