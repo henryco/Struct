@@ -31,11 +31,9 @@
       <file leaf-file-name="StaticVoidMainEnter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/StaticVoidMainEnter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="160">
               <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
                 <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
               </folding>
             </state>
@@ -45,7 +43,7 @@
       <file leaf-file-name="StructTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1014">
+            <state relative-caret-position="1320">
               <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
               <folding>
                 <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
@@ -59,20 +57,9 @@
       <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-              <folding>
-                <element signature="e#2408#2409#0" expanded="true" />
-                <element signature="e#2482#2483#0" expanded="true" />
-                <element signature="e#2528#2529#0" expanded="true" />
-                <element signature="e#2570#2571#0" expanded="true" />
-                <element signature="e#2619#2620#0" expanded="true" />
-                <element signature="e#2661#2662#0" expanded="true" />
-                <element signature="e#2701#2702#0" expanded="true" />
-                <element signature="e#2782#2783#0" expanded="true" />
-                <element signature="e#2818#2819#0" expanded="true" />
-                <element signature="e#2899#2900#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="214">
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,6 +86,9 @@
     <option name="externalProjectsViewState">
       <projects_view />
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -243,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -420,6 +409,7 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -738,7 +728,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283433" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -758,6 +747,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283433" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="100" y="68" width="1720" height="912" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -789,10 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="method#printDataFile#0;class#Struct#0" expanded="false" />
-            <element signature="method#printData#0;class#Struct#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -812,9 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -823,8 +806,6 @@
         <state relative-caret-position="280">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -868,8 +849,6 @@
         <state relative-caret-position="280">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -913,8 +892,6 @@
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -953,8 +930,6 @@
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -1000,8 +975,6 @@
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -1047,8 +1020,6 @@
         <state relative-caret-position="200">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -1130,10 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="method#printDataFile#0;class#Struct#0" expanded="false" />
-            <element signature="method#printData#0;class#Struct#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1148,9 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1177,11 +1141,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StaticVoidMainEnter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="160">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#StaticVoidMainEnter#0" expanded="true" />
             <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
@@ -1189,7 +1151,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1014">
+        <state relative-caret-position="1320">
           <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
           <folding>
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
@@ -1201,20 +1163,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-          <folding>
-            <element signature="e#2408#2409#0" expanded="true" />
-            <element signature="e#2482#2483#0" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2619#2620#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
-            <element signature="e#2701#2702#0" expanded="true" />
-            <element signature="e#2782#2783#0" expanded="true" />
-            <element signature="e#2818#2819#0" expanded="true" />
-            <element signature="e#2899#2900#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="214">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -50,21 +50,29 @@ public class StructNode {
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends String> T getPrimitive(String name) throws StructContainerException {
-        if (!this.primitives.containsKey(name)) throw new StructContainerException(name);
-        return (T) this.primitives.get(name);
+    public <T extends String> T getPrimitive(String ... name) throws StructContainerException {
+        for (String n : name) if (this.primitives.containsKey(n)) return (T) this.primitives.get(n);
+		String errMsg = "";
+		for (String n : name) errMsg += " "+n;
+		throw new StructContainerException(errMsg);
     }
     @SuppressWarnings("unchecked")
-    public <T extends StructNode> T getStruct(String name) throws StructContainerException {
-        if (!this.structures.containsKey(name)) throw new StructContainerException(name);
-        return (T) this.structures.get(name);
+    public <T extends StructNode> T getStruct(String ... name) throws StructContainerException {
+		for (String n : name) if (this.structures.containsKey(n)) return (T) this.structures.get(n);
+		String errMsg = "";
+		for (String n : name) errMsg += " "+n;
+		throw new StructContainerException(errMsg);
     }
     @SuppressWarnings("unchecked")
-    public <E> E get(String name) throws StructContainerException {
-        if (primitives.containsKey(name)) return (E) primitives.get(name);
-        if (structures.containsKey(name)) return (E) structures.get(name);
-        if (this.name.equalsIgnoreCase(name)) return (E) this;
-        else throw new StructContainerException(name);
+    public <E> E get(String ... name) throws StructContainerException {
+		for (String n : name) {
+			if (primitives.containsKey(n)) return (E) primitives.get(n);
+			if (structures.containsKey(n)) return (E) this.structures.get(n);
+			if (this.name.equalsIgnoreCase(n)) return (E) this;
+		}
+		String errMsg = "";
+		for (String n : name) errMsg += " "+n;
+		throw new StructContainerException(errMsg);
     }
     @SuppressWarnings("unchecked")
     public <T extends StructNode> T getParent() {
