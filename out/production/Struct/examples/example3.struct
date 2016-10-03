@@ -1,0 +1,80 @@
+//Escapy map objects config
+#type struct
+
+map: {
+
+	container[0]: {
+		fboName: "<BGR_FBUFFER>";
+		
+		layer[0]: { 
+			name: "bgr static"
+			stepShift(0, 0);
+	//		objects[0]: {
+	//			url: "Loc_3bckgr.png"
+	//			position (0, 0)
+	//			scale 1;
+	//			type: STATIC
+	//			id = "-2147483648"
+	//		}
+			objects[0]: ("Loc_3bckgr.png", [0,0], 1, STATIC, "-2147483648")
+			objects[1]: ("Loc_346d.png", [0,1], 2, ANIMATED, 4)
+			objects: {
+				2: {
+					url "dgh.png"	
+					position(0,4)
+					scale 1
+					type STATIC
+					id 34
+				}
+			}
+			objects[3] : ("wow.png", [1,1], 3, ANIMATED, 7)
+		}
+		layer[1]: { 
+			name: "bgr parallax"
+			stepShift(0, 0);
+		}
+	}
+
+ 	container[1]: {
+		fboName: "<STD_FBUFFER>";
+		
+		layer[0]: {
+			name: "main"
+			stepShift(1, 1);
+			objects: {
+				0: {
+					url: "Loc_33.png";
+					position(0, 15)
+					scale 1
+					type: STATIC
+					id: 3;
+				}
+				1: {
+					url: "Loc_32.png";
+					position(270, 495)
+					scale 1
+					type: ANIMATED
+					id: 2;
+				}
+				2: {
+					url: "Loc_31.png";
+					position(405, 130)
+					scale 1
+					type: ANIMATED
+					id: 1;
+				}
+				3: {
+					url: "Loc_34.png";
+					position(649, 467)
+					scale 1
+					type: INTERACTIVE
+					id: 4;
+				}
+			}
+		}
+		layer[1]: { 
+			name: "front parallax"
+			stepShift(1.3, 1);
+		}
+	}
+}
