@@ -9,13 +9,6 @@ map: {
 		layer[0]: { 
 			name: "bgr static"
 			stepShift(0, 0);
-	//		objects[0]: {
-	//			url: "Loc_3bckgr.png"
-	//			position (0, 0)
-	//			scale 1;
-	//			type: STATIC
-	//			id = "-2147483648"
-	//		}
 			objects[0]: ("Loc_3bckgr.png", [0,0], 1, STATIC, "-2147483648")
 			objects[1]: ("Loc_346d.png", [0,1], 2, ANIMATED, 4)
 			objects: {
