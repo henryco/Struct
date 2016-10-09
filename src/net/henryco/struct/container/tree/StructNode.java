@@ -63,6 +63,17 @@ public class StructNode {
 		for (String n : name) errMsg += " "+n;
 		throw new StructContainerException(errMsg);
     }
+	@SuppressWarnings("unchecked")
+	public <T extends StructNode> T getPath(String ... name) throws StructContainerException {
+		StructNode actual = this;
+		for (String n : name) actual = actual.getStruct(n);
+		return (T) actual;
+	}
+	@SuppressWarnings("unchecked")
+	public <T extends String> T getPathPrimitive(String primitive, String ... name) throws StructContainerException {
+		return (T) getPath(name).getPrimitive(primitive);
+	}
+
     @SuppressWarnings("unchecked")
     public <E> E get(String ... name) throws StructContainerException {
 		for (String n : name) {
@@ -101,6 +112,12 @@ public class StructNode {
 		Arrays.stream(this.getPrimitiveChild()).forEach(primList::add);
 		Arrays.stream(this.getStructChild()).forEach(primList::add);
 		return primList.toArray(new String[primList.size()]);
+	}
+
+	private static <T> T throwErrMsg(String ... msg) throws StructContainerException {
+		String errMsg = "";
+		for (String n : msg) errMsg += " "+n;
+		throw new StructContainerException(errMsg);
 	}
 
     public String printTreeView(int increment, String space) {
