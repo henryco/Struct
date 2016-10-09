@@ -1,6 +1,8 @@
 package net.henryco.struct.container.tree;
 
 
+import net.henryco.struct.Struct;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +25,10 @@ public class StructTree {
     public StructTree() {}
     public StructTree(List<String[]>[] data) {
         loadContainer(data);
-
     }
+	public StructTree(String name) {
+		loadContainer(Struct.in.readStructData(name));
+	}
 
     public StructTree loadContainer(List<String[]>[] data) {
 

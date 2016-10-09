@@ -17,7 +17,9 @@ public interface StructContainer {
     static StructTree tree(List<String[]>[] data) {
         return new StructTree(data);
     }
-
+	static StructTree tree(String file) {
+		return StructContainer.tree(Struct.in.readStructData(file));
+	}
 	static StructNode loadFromFile(StructNode fileNode, String location, String file, String fileName, String pathName, String ... msg) {
 		String loc = location;
 		if (fileNode.containsPrimitive(pathName) || fileNode.containsPrimitive("0")) loc = ePrep(fileNode.getPrimitive(pathName, "0"));
@@ -25,7 +27,7 @@ public interface StructContainer {
 		String ms = "";
 		for (String s : msg) ms += s;
 		System.out.println("\n"+ms+": "+loc);
-		return StructContainer.tree(Struct.in.readStructData(loc)).mainNode.getStruct(file);
+		return StructContainer.tree(loc).mainNode.getStruct(file);
 	}
 
 	static String sPrep(String name) {
