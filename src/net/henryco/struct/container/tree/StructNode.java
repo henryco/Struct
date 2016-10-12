@@ -49,6 +49,19 @@ public class StructNode {
         return this;
     }
 
+    public int getInt(String ... name) {
+		return Integer.parseInt(getPrimitive(name));
+	}
+	public int getIntPath(String name, String ... path) {
+		return Integer.parseInt(getPathPrimitive(name, path));
+	}
+	public float getFloat(String ... name) {
+		return Float.parseFloat(getPrimitive(name));
+	}
+	public float getFloatPath(String name, String ... path){
+		return Float.parseFloat(getPathPrimitive(name, path));
+	}
+
     @SuppressWarnings("unchecked")
     public <T extends String> T getPrimitive(String ... name) throws StructContainerException {
         for (String n : name) if (this.primitives.containsKey(n)) return (T) this.primitives.get(n);
@@ -70,8 +83,8 @@ public class StructNode {
 		return (T) actual;
 	}
 	@SuppressWarnings("unchecked")
-	public <T extends String> T getPathPrimitive(String primitive, String ... name) throws StructContainerException {
-		return (T) getPath(name).getPrimitive(primitive);
+	public <T extends String> T getPathPrimitive(String name, String ... path) throws StructContainerException {
+		return (T) getPath(path).getPrimitive(name);
 	}
 
     @SuppressWarnings("unchecked")
