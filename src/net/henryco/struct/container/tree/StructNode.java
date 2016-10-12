@@ -61,6 +61,12 @@ public class StructNode {
 	public float getFloatPath(String name, String ... path){
 		return Float.parseFloat(getPathPrimitive(name, path));
 	}
+	public boolean getBool(String name) {
+		return Boolean.parseBoolean(getPrimitive(name));
+	}
+	public boolean getBoolPath(String name, String path) {
+		return Boolean.parseBoolean(getPathPrimitive(name, path));
+	}
 
     @SuppressWarnings("unchecked")
     public <T extends String> T getPrimitive(String ... name) throws StructContainerException {
