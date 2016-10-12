@@ -73,17 +73,29 @@ public class StructNode {
 		} catch (StructContainerException e){}
 		return f;
 	}
-	public boolean getBool(boolean b, String name) {
+	public boolean getBool(boolean b, String ... name) {
 		try {
-			b = Boolean.parseBoolean(getPrimitive(name));;
+			b = Boolean.parseBoolean(getPrimitive(name));
 		} catch (StructContainerException e){}
 		return b;
 	}
-	public boolean getBoolPath(boolean b, String name, String path) {
+	public boolean getBoolPath(boolean b, String name, String ... path) {
 		try {
 			b = Boolean.parseBoolean(getPathPrimitive(name, path));
 		} catch (StructContainerException e){}
 		return b;
+	}
+	public String getString(String s, String ... name){
+		try {
+			s = getPrimitive(name);
+		} catch (StructContainerException e){}
+		return s;
+	}
+	public String getStringPath(String s, String name, String ... path){
+		try {
+			s = getPathPrimitive(name);
+		} catch (StructContainerException e){}
+		return s;
 	}
 
     @SuppressWarnings("unchecked")
