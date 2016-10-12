@@ -49,23 +49,41 @@ public class StructNode {
         return this;
     }
 
-    public int getInt(String ... name) {
-		return Integer.parseInt(getPrimitive(name));
+    public int getInt(int i, String ... name) {
+		try {
+			i = Integer.parseInt(getPrimitive(name));
+		} catch (StructContainerException e) {}
+		return i;
 	}
-	public int getIntPath(String name, String ... path) {
-		return Integer.parseInt(getPathPrimitive(name, path));
+	public int getIntPath(int i, String name, String ... path) {
+		try {
+			i = Integer.parseInt(getPathPrimitive(name, path));
+		} catch (StructContainerException e) {}
+		return i;
 	}
-	public float getFloat(String ... name) {
-		return Float.parseFloat(getPrimitive(name));
+	public float getFloat(float f, String ... name) {
+		try {
+			f = Float.parseFloat(getPrimitive(name));
+		} catch (StructContainerException e){}
+		return f;
 	}
-	public float getFloatPath(String name, String ... path){
-		return Float.parseFloat(getPathPrimitive(name, path));
+	public float getFloatPath(float f, String name, String ... path){
+		try {
+			f = Float.parseFloat(getPathPrimitive(name, path));
+		} catch (StructContainerException e){}
+		return f;
 	}
-	public boolean getBool(String name) {
-		return Boolean.parseBoolean(getPrimitive(name));
+	public boolean getBool(boolean b, String name) {
+		try {
+			b = Boolean.parseBoolean(getPrimitive(name));;
+		} catch (StructContainerException e){}
+		return b;
 	}
-	public boolean getBoolPath(String name, String path) {
-		return Boolean.parseBoolean(getPathPrimitive(name, path));
+	public boolean getBoolPath(boolean b, String name, String path) {
+		try {
+			b = Boolean.parseBoolean(getPathPrimitive(name, path));
+		} catch (StructContainerException e){}
+		return b;
 	}
 
     @SuppressWarnings("unchecked")
