@@ -97,13 +97,15 @@ public class StructNode {
 		} catch (StructContainerException e){}
 		return s;
 	}
-	public StructNode getStruct(StructNode node, String ... name){
+	public StructNode getStructSafe(String ... name){
+		StructNode node = null;
 		try {
 			node = getStruct(name);
 		} catch (StructContainerException e) {}
 		return node;
 	}
-	public StructNode getPath(StructNode node, String ... path) {
+	public StructNode getPathSafe(String ... path) {
+		StructNode node = null;
 		try {
 			node = getPath(path);
 		} catch (StructContainerException e){}

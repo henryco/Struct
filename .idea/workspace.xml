@@ -67,8 +67,8 @@
       <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="119" column="34" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+            <state relative-caret-position="299">
+              <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
               <folding>
                 <element signature="method#getInt#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
@@ -78,8 +78,9 @@
                 <element signature="method#getBoolPath#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getString#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
-                <element signature="method#getStruct#0;class#StructNode#0" expanded="false" />
-                <element signature="method#getPath#0;class#StructNode#0" expanded="false" />
+                <element signature="method#getStructSafe#0;class#StructNode#0" expanded="false" />
+                <element signature="method#getPathSafe#0;class#StructNode#0" expanded="false" />
+                <element signature="e#3380#3410#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -255,7 +256,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -430,8 +433,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1179,8 +1180,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="119" column="34" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+        <state relative-caret-position="299">
+          <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
           <folding>
             <element signature="method#getInt#0;class#StructNode#0" expanded="false" />
             <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
@@ -1190,8 +1191,9 @@
             <element signature="method#getBoolPath#0;class#StructNode#0" expanded="false" />
             <element signature="method#getString#0;class#StructNode#0" expanded="false" />
             <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
-            <element signature="method#getStruct#0;class#StructNode#0" expanded="false" />
-            <element signature="method#getPath#0;class#StructNode#0" expanded="false" />
+            <element signature="method#getStructSafe#0;class#StructNode#0" expanded="false" />
+            <element signature="method#getPathSafe#0;class#StructNode#0" expanded="false" />
+            <element signature="e#3380#3410#0" expanded="true" />
           </folding>
         </state>
       </provider>
