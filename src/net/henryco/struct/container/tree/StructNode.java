@@ -97,6 +97,18 @@ public class StructNode {
 		} catch (StructContainerException e){}
 		return s;
 	}
+	public StructNode getStruct(StructNode node, String ... name){
+		try {
+			node = getStruct(name);
+		} catch (StructContainerException e) {}
+		return node;
+	}
+	public StructNode getPath(StructNode node, String ... path) {
+		try {
+			node = getPath(path);
+		} catch (StructContainerException e){}
+		return node;
+	}
 
     @SuppressWarnings("unchecked")
     public <T extends String> T getPrimitive(String ... name) throws StructContainerException {
@@ -115,7 +127,9 @@ public class StructNode {
 	@SuppressWarnings("unchecked")
 	public <T extends StructNode> T getPath(String ... name) throws StructContainerException {
 		StructNode actual = this;
-		for (String n : name) actual = actual.getStruct(n);
+		String[] actName = name;
+		if (name.length == 1) actName = name[0].split("/");
+		for (String n : actName) actual = actual.getStruct(n);
 		return (T) actual;
 	}
 	@SuppressWarnings("unchecked")
