@@ -1,5 +1,6 @@
 package net.henryco.struct.container.tree;
 
+import net.henryco.struct.container.StructContainer;
 import net.henryco.struct.container.exceptions.StructContainerException;
 
 import java.util.*;
@@ -12,22 +13,28 @@ import java.util.*;
 public class StructNode {
 
     public final String name;
+	public final String dirName;
 	private static final int indent = 1;
 	private static final String space = "_";
+	public static String fileSeq = "file";
+	public static String pathSeq = "path";
+	public static String[] extSeq = {"ext", "external"};
 
     private StructNode parent = null;
     private Map<String, Object> primitives = new HashMap<>();
     private Map<String, Object> structures = new HashMap<>();
 
 
-    public StructNode(String name) {
-        this.parent = this;
+    public StructNode(String name, String dirName) {
+		this.parent = this;
         this.name = name;
+		this.dirName = dirName;
     }
-    public StructNode(StructNode parent, String name) {
+    public StructNode(StructNode parent, String name, String dirName) {
         this.parent = parent;
         this.name = name;
-    }
+		this.dirName = dirName;
+	}
 
 
     public StructNode addPrimitive(String name, String value) {
@@ -101,6 +108,9 @@ public class StructNode {
 		StructNode node = null;
 		try {
 			node = getStruct(name);
+			if (node.containsStruct(extSeq[0]) || node.containsStruct(extSeq[1]))
+				node = StructContainer.loadFromFile(node.getStruct(extSeq[0], extSeq[1]), dirName.substring(0, dirName.lastIndexOf("/") + 1), node.name, fileSeq, pathSeq,
+						dirName.substring(0, dirName.lastIndexOf("/") + 1), node.name);
 		} catch (StructContainerException e) {}
 		return node;
 	}

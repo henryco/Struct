@@ -14,11 +14,11 @@ public interface StructContainer {
     static StructTree tree() {
         return new StructTree();
     }
-    static StructTree tree(List<String[]>[] data) {
-        return new StructTree(data);
+    static StructTree tree(List<String[]>[] data, String name) {
+        return new StructTree(data, name);
     }
 	static StructTree tree(String file) {
-		return StructContainer.tree(Struct.in.readStructData(file));
+		return StructContainer.tree(Struct.in.readStructData(file), file);
 	}
 	static StructNode loadFromFile(StructNode fileNode, String location, String file, String fileName, String pathName, String ... msg) {
 		String loc = location;

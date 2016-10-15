@@ -7,7 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Struct_jar/Struct.jar" afterPath="$PROJECT_DIR$/out/artifacts/Struct_jar/Struct.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/StaticVoidMainEnter.class" afterPath="$PROJECT_DIR$/out/production/Struct/StaticVoidMainEnter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/StructContainer.class" afterPath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/StructContainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructNode.class" afterPath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructTree.class" afterPath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructTree.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StaticVoidMainEnter.java" afterPath="$PROJECT_DIR$/src/StaticVoidMainEnter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/StructContainer.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/StructContainer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java" />
     </list>
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +40,8 @@
       <file leaf-file-name="StaticVoidMainEnter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/StaticVoidMainEnter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+            <state relative-caret-position="160">
+              <caret line="15" column="110" selection-start-line="15" selection-start-column="110" selection-end-line="15" selection-end-column="110" />
               <folding>
                 <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
               </folding>
@@ -43,11 +52,11 @@
       <file leaf-file-name="StructTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+            <state relative-caret-position="300">
+              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
               <folding>
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#642#643#0" expanded="true" />
+                <element signature="e#700#701#0" expanded="true" />
                 <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
               </folding>
             </state>
@@ -64,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
+            <state relative-caret-position="460">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
                 <element signature="method#getInt#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
@@ -78,10 +87,18 @@
                 <element signature="method#getBoolPath#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getString#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
-                <element signature="method#getStructSafe#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getPathSafe#0;class#StructNode#0" expanded="false" />
-                <element signature="e#3380#3410#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StructContainer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/StructContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -140,8 +157,8 @@
         <option value="$PROJECT_DIR$/src/struct/Struct.java" />
         <option value="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" />
         <option value="$PROJECT_DIR$/src/net/henryco/struct/container/exceptions/StructContainerException.java" />
-        <option value="$PROJECT_DIR$/src/StaticVoidMainEnter.java" />
         <option value="$PROJECT_DIR$/src/net/henryco/struct/container/StructContainer.java" />
+        <option value="$PROJECT_DIR$/src/StaticVoidMainEnter.java" />
         <option value="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java" />
         <option value="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" />
       </list>
@@ -256,9 +273,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -433,6 +449,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -810,8 +827,8 @@
         <state relative-caret-position="120">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -846,8 +863,8 @@
         <state relative-caret-position="100">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -889,8 +906,8 @@
         <state relative-caret-position="100">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -1127,13 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/exceptions/StructContainerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1141,20 +1151,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/StaticVoidMainEnter.java">
+    <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/exceptions/StructContainerException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+        <state relative-caret-position="240">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
           <folding>
-            <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
+            <element signature="e#451#452#0" expanded="false" />
+            <element signature="e#507#508#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/StructContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="20" column="66" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -1168,20 +1172,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+        <state relative-caret-position="300">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
           <folding>
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StaticVoidMainEnter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="15" column="110" selection-start-line="15" selection-start-column="110" selection-end-line="15" selection-end-column="110" />
+          <folding>
+            <element signature="method#visualise#0;class#StaticVoidMainEnter#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
+        <state relative-caret-position="460">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
             <element signature="method#getInt#0;class#StructNode#0" expanded="false" />
             <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
@@ -1191,10 +1205,16 @@
             <element signature="method#getBoolPath#0;class#StructNode#0" expanded="false" />
             <element signature="method#getString#0;class#StructNode#0" expanded="false" />
             <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
-            <element signature="method#getStructSafe#0;class#StructNode#0" expanded="false" />
             <element signature="method#getPathSafe#0;class#StructNode#0" expanded="false" />
-            <element signature="e#3380#3410#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/StructContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

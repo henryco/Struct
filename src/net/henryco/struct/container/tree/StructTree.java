@@ -19,18 +19,18 @@ public class StructTree {
 
     {
         storage = new HashMap<>();
-        mainNode = new StructNode(main);
+        mainNode = new StructNode(main, "absolute");
         storage.put(main, mainNode);
     }
     public StructTree() {}
-    public StructTree(List<String[]>[] data) {
-        loadContainer(data);
+    public StructTree(List<String[]>[] data, String name) {
+        loadContainer(data, name);
     }
 	public StructTree(String name) {
-		loadContainer(Struct.in.readStructData(name));
+		loadContainer(Struct.in.readStructData(name), name);
 	}
 
-    public StructTree loadContainer(List<String[]>[] data) {
+    public StructTree loadContainer(List<String[]>[] data, String dirName) {
 
         long time0 = System.nanoTime();
         List<String[]> dataList = data[1];
@@ -40,7 +40,7 @@ public class StructTree {
             if (line[line.length - 1].endsWith("{")) {
                 StructNode node;
                 if (!actual.contains(line[line.length - 2])) {
-                    node = new StructNode(actual, line[line.length - 2]);
+                    node = new StructNode(actual, line[line.length - 2], dirName);
                     actual.addStructure(node);
                     storage.put(node.name, node);
                 }
