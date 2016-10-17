@@ -104,6 +104,9 @@ public class StructNode {
 		} catch (StructContainerException e){}
 		return s;
 	}
+	public StructNode getStructSafe(int index){
+		return getStructSafe(Integer.toString(index));
+	}
 	public StructNode getStructSafe(String ... name){
 		StructNode node = null;
 		try {
@@ -115,13 +118,21 @@ public class StructNode {
 		return node;
 	}
 	public StructNode getPathSafe(String ... path) {
-		StructNode node = null;
+
+		StructNode node = this;
 		try {
-			node = getPath(path);
-		} catch (StructContainerException e){}
+			String[] actName = path;
+			if (path.length == 1) actName = path[0].split("/");
+			for (String n : actName) node = node.getStructSafe(n);
+		} catch (StructContainerException e){
+			return null;
+		}
 		return node;
 	}
 
+	public <T extends StructNode> T getStruct(int index) throws StructContainerException {
+		return getStruct(Integer.toString(index));
+	}
     @SuppressWarnings("unchecked")
     public <T extends String> T getPrimitive(String ... name) throws StructContainerException {
         for (String n : name) if (this.primitives.containsKey(n)) return (T) this.primitives.get(n);
