@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Struct_jar/Struct.jar" afterPath="$PROJECT_DIR$/out/artifacts/Struct_jar/Struct.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructNode.class" afterPath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" />
     </list>
@@ -49,8 +47,6 @@
             <state relative-caret-position="300">
               <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
               <folding>
-                <element signature="e#642#643#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
                 <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
               </folding>
             </state>
@@ -70,8 +66,8 @@
       <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="107" column="54" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="54" />
+            <state relative-caret-position="740">
+              <caret line="213" column="19" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
               <folding>
                 <element signature="method#getInt#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
@@ -81,6 +77,8 @@
                 <element signature="method#getBoolPath#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getString#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
+                <element signature="e#3023#3024#0" expanded="true" />
+                <element signature="e#3075#3076#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -267,9 +265,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -814,8 +812,6 @@
         <state relative-caret-position="120">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -850,8 +846,6 @@
         <state relative-caret-position="100">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -893,8 +887,6 @@
         <state relative-caret-position="100">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
           <folding>
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -1158,8 +1150,6 @@
         <state relative-caret-position="300">
           <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
           <folding>
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
           </folding>
         </state>
@@ -1192,8 +1182,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="107" column="54" selection-start-line="107" selection-start-column="54" selection-end-line="107" selection-end-column="54" />
+        <state relative-caret-position="740">
+          <caret line="213" column="19" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
           <folding>
             <element signature="method#getInt#0;class#StructNode#0" expanded="false" />
             <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
@@ -1203,6 +1193,8 @@
             <element signature="method#getBoolPath#0;class#StructNode#0" expanded="false" />
             <element signature="method#getString#0;class#StructNode#0" expanded="false" />
             <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
+            <element signature="e#3023#3024#0" expanded="true" />
+            <element signature="e#3075#3076#0" expanded="true" />
           </folding>
         </state>
       </provider>

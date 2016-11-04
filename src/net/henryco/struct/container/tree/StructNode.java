@@ -200,6 +200,20 @@ public class StructNode {
 		return primList.toArray(new String[primList.size()]);
 	}
 
+	public String[] getPrimitiveArray() {
+		String[] childs = this.getPrimitiveChild();
+		String[] arr = new String[childs.length];
+		for (int i = 0; i < arr.length; i++) arr[i] = this.getPrimitive(childs[i]);
+		return arr;
+	}
+
+	public StructNode[] getStructArray() {
+		String[] childs = this.getStructChild();
+		StructNode[] arr = new StructNode[childs.length];
+		for (int i = 0; i < arr.length; i++) arr[i] = this.getStruct(childs[i]);
+		return arr;
+	}
+
 	private static <T> T throwErrMsg(String ... msg) throws StructContainerException {
 		String errMsg = "";
 		for (String n : msg) errMsg += " "+n;
