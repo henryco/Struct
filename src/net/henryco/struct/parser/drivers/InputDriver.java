@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.jar.Pack200;
 import java.util.stream.Collectors;
 
 
@@ -22,6 +21,7 @@ public class InputDriver {
     private String[] EQUALS_TYPES = new String[]{"="};
     private String[] IGNORED_TYPES = new String[]{";"};
     private String[] SPLIT_TYPES = new String[]{":", " "};
+	private String[] PREPROCESSOR_TYPES = new String[]{"\'"};
     private String[] OPERATOR_TYPES = new String[]
             {">>>", "<<<", ">>", "<<", "&&", "||", "=>", "<=",
                     ">", "<", "+", "-", "/", "*", "|", "!", "?", "&", "%"};
@@ -48,11 +48,10 @@ public class InputDriver {
                 String trimmedLine = textLine.trim();
 
                 if (checkImports(trimmedLine)) {
-                    String[] headers = splitLine(trimmedLine, new String[0], EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-
-                    for (int i = 0; i < headers.length; i++)
-                        headers[i] = headers[i].trim();
-                    headerList.add(processHeaderLine(headers));
+                //    String[] headers = splitLine(trimmedLine, new String[0], EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
+					String[] headers = splitHeader(replaceFor(trimmedLine, EQUALS_TYPES, ":").trim(), PREPROCESSOR_TYPES, SPLIT_TYPES);
+                    for (int i = 0; i < headers.length; i++) headers[i] = headers[i].trim();
+					headerList.add(processHeaderLine(headers));
                 } else if (checkBody(trimmedLine, COMMENT_TYPES)) {
 
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
@@ -62,17 +61,13 @@ public class InputDriver {
 
                     //TODO add operator mark
 
-                    String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES),
-                            EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-                    for (int i = 0; i < tokeLine.length; i++)
-                        tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
+                    String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
+                    for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
                     bodyList.add(tokeLine);
                 }
             }
             bodyList = prepareBrackets(bodyList, ARRAY_TYPES, STRING_TYPES, includeTxt);
-            bodyList = prepareArrayConstructors(prepareDots(
-                    bodyList.stream().filter(b -> b.length > 0).
-                            collect(Collectors.toCollection(ArrayList::new))), ARRAY_TYPES);
+            bodyList = prepareArrayConstructors(prepareDots(bodyList.stream().filter(b -> b.length > 0).collect(Collectors.toCollection(ArrayList::new))), ARRAY_TYPES);
 
             long time1 = System.nanoTime() - time0;
             String finish = "Compiled INPUT_DRIVER in: " + time1 + " ns";
@@ -116,6 +111,32 @@ public class InputDriver {
     }
 
 
+	private static String[] splitHeader(String line, String[] prepSeq, String[] splitSeq){
+
+		ArrayList<String> wordList = new ArrayList<>();
+		boolean incase = false;
+		char[] arr = line.toCharArray();
+		StringBuffer wordCreator = new StringBuffer();
+		for (int i = 0; i < arr.length; i++) {
+			for (String s : prepSeq) {
+				if (arr[i] == s.charAt(0)) {
+					incase = !incase;
+					i+=1;
+					break;
+				}
+			}
+			if (!incase) for (String s : splitSeq) {
+				if (arr[i] == s.charAt(0)) {
+					wordList.add(wordCreator.toString());
+					wordCreator = new StringBuffer();
+				}
+			}
+			wordCreator.append(arr[i]);
+		}
+		if (wordCreator.length() > 0) wordList.add(wordCreator.toString());
+		return wordList.toArray(new String[wordList.size()]);
+	}
+
     private static String[] splitLine(String bodyLine, String[] exceptions, String[] eqSymbols, String[] ignored,
                                       String[] split) {
         String newBodyLine = replaceFor(bodyLine, eqSymbols, ":");
@@ -155,7 +176,6 @@ public class InputDriver {
         if (extra) lineList.add(extraSym);
         return lineList.toArray(new String[lineList.size()]);
     }
-
 
     private static String[] tokeSplit(String line, String[] seq) {
 
