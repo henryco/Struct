@@ -23,9 +23,10 @@ public class InputDriver {
     private String[] IGNORED_TYPES = new String[]{";"};
     private String[] SPLIT_TYPES = new String[]{":", " "};
     private String[] OPERATOR_TYPES = new String[]
-            {">>>", "<<<", ">>", "<<", "->", "&&", "||", "=>", "<=",
+            {">>>", "<<<", ">>", "<<", "&&", "||", "=>", "<=",
                     ">", "<", "+", "-", "/", "*", "|", "!", "?", "&", "%"};
-
+	private String[] REPLACE_FROM = new String[]{};
+	private String[] REPLACE_TO = new String[]{};
     private boolean includeTxt = false;
 
     InputDriver() {
@@ -51,11 +52,12 @@ public class InputDriver {
 
                     for (int i = 0; i < headers.length; i++)
                         headers[i] = headers[i].trim();
-                    headerList.add(headers);
+                    headerList.add(processHeaderLine(headers));
                 } else if (checkBody(trimmedLine, COMMENT_TYPES)) {
 
                     trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
-                    trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+					trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
+					trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
                     trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
 
                     //TODO add operator mark
@@ -87,6 +89,24 @@ public class InputDriver {
         returnListArray[1] = bodyList;
         return returnListArray;
     }
+
+    private String[] processHeaderLine(String[] headerLine) {
+		if (headerLine != null && headerLine.length > 0) {
+			if (headerLine[0].equalsIgnoreCase("#sugar") && headerLine.length >=3) {
+				String[] from = new String[REPLACE_FROM.length + 1];
+				String[] to = new String[from.length];
+				for (int i = 0; i < from.length - 1; i++) {
+					from[i] = REPLACE_FROM[i];
+					to[i] = REPLACE_TO[i];
+				}
+				from[from.length - 1] = headerLine[1];
+				to[to.length - 1] = headerLine[2];
+				REPLACE_FROM = from;
+				REPLACE_TO = to;
+			}
+		}
+		return headerLine;
+	}
 
     private static void printUnderlined(String msg, String sym) {
         System.out.println("");
@@ -193,6 +213,11 @@ public class InputDriver {
         if (actual >= 2) return toke.substring((start_end[0] + 1), start_end[1]);
         return toke.trim();
     }
+
+    private static String prepareReplaces(String line, String[] from, String[] to) {
+		for (int i = 0; i < from.length; i++) line = line.replaceAll(from[i], to[i]);
+		return line;
+	}
 
     private static String prepareArrayIndexes(String line, String[] arrIndex, String[] exc) {
         StringBuilder builder = new StringBuilder();
