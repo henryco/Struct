@@ -51,7 +51,9 @@ public class StructTree {
                 if (line[0].endsWith("}")) actual = actual.getParent();
 				else if (line[0].startsWith("*")) {
 					//TODO POINTERS
-
+					System.out.print("pointer:["+line[0]+"]  link:[...");
+					for (int k = 1; k < line.length - 1; k++) System.out.print(" ->"+line[k]);
+					System.out.print("]  target:["+line[line.length-1]+"]\n");
 				}
                 else {
                     String[] primitive = new String[]{line[line.length - 2], line[line.length - 1]};
