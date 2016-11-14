@@ -49,6 +49,10 @@ public class StructTree {
             }
             else {
                 if (line[0].endsWith("}")) actual = actual.getParent();
+				else if (line[0].startsWith("*")) {
+					//TODO POINTERS
+
+				}
                 else {
                     String[] primitive = new String[]{line[line.length - 2], line[line.length - 1]};
                     actual.addPrimitive(primitive[0], primitive[1]);

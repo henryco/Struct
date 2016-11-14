@@ -24,7 +24,7 @@ public class InputDriver {
 	private String[] PREPROCESSOR_TYPES = new String[]{"\'"};
     private String[] OPERATOR_TYPES = new String[]
             {">>>", "<<<", ">>", "<<", "&&", "||", "=>", "<=",
-                    ">", "<", "+", "-", "/", "*", "|", "!", "?", "&", "%"};
+                    ">", "<", "+", "-", "/", "*", "|", "!", "?", "%"};
 	private String[] REPLACE_FROM = new String[]{};
 	private String[] REPLACE_TO = new String[]{};
     private boolean includeTxt = false;
@@ -280,7 +280,7 @@ public class InputDriver {
                     isOpen = !isOpen;
                     break;
                 }
-            if (!isOpen)
+            if (!isOpen && i>0)
                 for (String st : operators) {
                     char[] tested = st.toCharArray();
                     int flag = 0;

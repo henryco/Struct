@@ -24,6 +24,7 @@ public class StructNode {
 	private StructNode parent = null;
 	private Map<String, Object> primitives = new HashMap<>();
 	private Map<String, Object> structures = new HashMap<>();
+	private Map<String, Object> pointers = new HashMap<>(); //TODO POINTERS
 
 
 	public StructNode(String name, String dirName) {
@@ -290,15 +291,12 @@ public class StructNode {
 	public <T> T smartCastStruct(T target, Class targetClass, boolean recursive) {
 		return smartCastStruct(target, targetClass, recursive, "_");
 	}
-
 	public <T> T smartCastStruct(T target, Class targetClass, boolean recursive, String in) {
 		return smartCastStruct(target, targetClass, this, recursive, in);
 	}
-
 	private <T> T smartCastStruct(T target, Class targetClass, StructNode node, boolean recursive) {
 		return smartCastStruct(target, targetClass, node, recursive, "_");
 	}
-
 	private <T> T smartCastStruct(T target, Class targetClass, StructNode node, boolean recursive, String in) {
 		System.out.print(log_loading ? in + "IN\n" : "");
 		for (String index : node.getStructChild()) {
