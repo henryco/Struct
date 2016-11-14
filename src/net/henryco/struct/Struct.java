@@ -13,9 +13,9 @@ public class Struct {
 
     public static final InputDriver in = Drivers.getInputDriver();
     private static final Struct thisDriver = new Struct();
+	public static boolean log_loading = false;
 
-
-    public static List<String[]>[] printDataFile(List<String[]>[] arr) {
+	public static List<String[]>[] printDataFile(List<String[]>[] arr) {
         Arrays.stream(arr).forEach(Struct::printData);
         return arr;
     }

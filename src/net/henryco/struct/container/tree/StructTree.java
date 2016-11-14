@@ -51,9 +51,9 @@ public class StructTree {
                 if (line[0].endsWith("}")) actual = actual.getParent();
 				else if (line[0].startsWith("*")) {
 					//TODO POINTERS
-					System.out.print("pointer:["+line[0]+"]  link:[...");
-					for (int k = 1; k < line.length - 1; k++) System.out.print(" ->"+line[k]);
-					System.out.print("]  target:["+line[line.length-1]+"]\n");
+					System.out.print(Struct.log_loading ? "pointer:["+line[0]+"]  link:[..." : "");
+					for (int k = 1; k < line.length - 1; k++) System.out.print(Struct.log_loading ? " ->"+line[k]: "");
+					System.out.print(Struct.log_loading ? "]  target:["+line[line.length-1]+"]\n" : "");
 
 					if (line.length > 0) {
 						StructNode actualPointNode = actual;
@@ -64,22 +64,33 @@ public class StructTree {
 						if (actualPointNode != null) {
 							for (int k = 1; k < line.length - 1; k++) actualPointNode = actualPointNode.getStructSafe(line[k]);
 							if (actualPointNode != null) actual.addPointer(line[0], actualPointNode.get(line[line.length - 1]));
-							System.out.println("POINTER FROM: ");
-							System.out.println(actualPointNode);
 						}
 					}
 				}
 				else if (line[0].startsWith("&")) {
-					String nn ="";
-					for (String l : line) nn += l;
-					System.out.println(nn);
+					//TODO
 				}
                 else {
                     String[] primitive = new String[]{line[line.length - 2], line[line.length - 1]};
-                    if (primitive[1].startsWith("&"))
-                    	primitive[1] = actual.getFromPointer(primitive[1]);
-					actual.addPrimitive(primitive[0], primitive[1]);
-					storage.put(primitive[0], primitive[1]);
+                    if (primitive[1].startsWith("&")){
+						StructNode pointActualNode = actual;
+						while (!pointActualNode.containsPointer(primitive[1])) {
+							pointActualNode = pointActualNode.getParent();
+							if (pointActualNode == null) break;
+						}
+						if (pointActualNode != null) {
+							Object putObj = pointActualNode.getFromPointer(primitive[1]);
+							if (putObj instanceof String) actual.addPrimitive(primitive[0], (String)putObj);
+							else {
+								if (Struct.log_loading) System.out.println("actual put: "+pointActualNode.getParent().name+"->"+pointActualNode.name);
+								actual.addStructure(((StructNode)putObj).almostCopy(actual, primitive[0]));
+							}
+							storage.put(primitive[0], putObj);
+						}
+					} else {
+						actual.addPrimitive(primitive[0], primitive[1]);
+						storage.put(primitive[0], primitive[1]);
+					}
                 }
             }
         }

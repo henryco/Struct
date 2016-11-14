@@ -14,7 +14,6 @@ shapeObjects: {
 			}
 		}
 		*test = bodyDef::other::angularDamping
-		//*lol = &test;
 		showMe = &test;
 		polygon[0]: {
 			0: [762.0, 674.0]
@@ -33,5 +32,10 @@ shapeObjects: {
 		polygon[9]: ([72.0, 131.0] -> [39.0, 131.0] -> [39.0, 217.0] -> [72.0, 217.0])
 		polygon[10]: ([804.0, 348.0] -> [750.0, 348.0] -> [750.0, 643.0] -> [804.0, 643.0])
 		polygon[11]: ([-3.0, 684.0] < > [22.0, 684.0] -> [22.0, 434.0] -> [-3.0, 434.0])
+		*newPoly = polygon::10::0
+		showMore.moar = &newPoly
+		*poly12 = polygon::9
+		polygon[12] = &poly12
+		//polygon[12]: &newPoly
 	}
 }

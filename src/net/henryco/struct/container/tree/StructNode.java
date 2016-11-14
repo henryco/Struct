@@ -1,5 +1,6 @@
 package net.henryco.struct.container.tree;
 
+import net.henryco.struct.Struct;
 import net.henryco.struct.container.StructContainer;
 import net.henryco.struct.container.exceptions.StructContainerException;
 
@@ -19,12 +20,11 @@ public class StructNode {
 	public static String fileSeq = "file";
 	public static String pathSeq = "path";
 	public static String[] extSeq = {"ext", "external"};
-	public static boolean log_loading = false;
 
 	private StructNode parent = null;
 	private Map<String, Object> primitives = new HashMap<>();
 	private Map<String, Object> structures = new HashMap<>();
-	private Map<String, Object> pointers = new HashMap<>(); //TODO POINTERS
+	private Map<String, Object> pointers = new HashMap<>();
 
 
 	public StructNode(String name, String dirName) {
@@ -39,12 +39,29 @@ public class StructNode {
 		this.dirName = dirName;
 	}
 
+	public StructNode almostCopy(StructNode otherParent, String... name_dirName) {
+		String newname = this.name;
+		String newDir = this.dirName;
+		if (name_dirName.length == 1) newname = name_dirName[0];
+		if (name_dirName.length >= 2) newDir = name_dirName[1];
+
+		StructNode newNode = new StructNode(otherParent, newname, newDir);
+		newNode.primitives = new HashMap<>(this.primitives);
+		newNode.structures = new HashMap<>(this.structures);
+		newNode.pointers = new HashMap<>(this.pointers);
+
+		return newNode;
+	}
+
 	public StructNode addPointer(String name, Object object) {
 		String forPut = "&"+name.substring(1);
 		pointers.put(forPut, object);
-		System.out.println("POINTER NAME: "+forPut);
-		if (object instanceof String) System.out.println("POINTER PRIM: "+(String)object);
-		else System.out.println("POINTER STRUCT: "+((StructNode)object).name);
+		if (Struct.log_loading) {
+			System.out.println("NODE: " +this.getParent().name+"->"+this.name);
+			System.out.println("POINTER NAME: "+forPut);
+			if (object instanceof String) System.out.println("POINTER PRIM: "+(String)object);
+			else System.out.println("POINTER STRUCT: "+((StructNode)object).name);
+		}
 		return this;
 	}
 
@@ -165,7 +182,6 @@ public class StructNode {
 		for (String n : name) if (this.primitives.containsKey(n)) return (T) this.primitives.get(n);
 		//FIXME
 		for (String n : name) if (this.pointers.containsKey(("&"+n))) return (T) this.primitives.get("&"+n);
-		//FIXME
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
 		throw new StructContainerException(errMsg);
@@ -176,7 +192,6 @@ public class StructNode {
 		for (String n : name) if (this.structures.containsKey(n)) return (T) this.structures.get(n);
 		//FIXME
 		for (String n : name) if (this.structures.containsKey(("&"+n))) return (T) this.structures.get("&"+n);
-		//FIXME
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
 		throw new StructContainerException(errMsg);
@@ -203,7 +218,6 @@ public class StructNode {
 			if (structures.containsKey(n)) return (E) this.structures.get(n);
 			//FIXME
 			if (pointers.containsKey("&"+n)) return (E) this.pointers.get("&"+n);
-			//FIXME
 			if (this.name.equalsIgnoreCase(n)) return (E) this;
 		}
 		String errMsg = "";
@@ -213,7 +227,7 @@ public class StructNode {
 
 	@SuppressWarnings("unchecked")
 	public <T> T getFromPointer(String ... point){
-		for (String n : point) if (this.pointers.containsKey((n))) return (T) this.pointers.get(n);
+		for (String n : point) if (this.pointers.containsKey(n)) return (T) this.pointers.get(n);
 		String errMsg = "";
 		for (String n : point) errMsg += " " + n;
 		throw new StructContainerException(errMsg);
@@ -231,7 +245,9 @@ public class StructNode {
 	public boolean containsStruct(String name) {
 		return structures.containsKey(name);
 	}
-
+	public boolean containsPointer(String name) {
+		return pointers.containsKey(name);
+	}
 	public boolean containsPrimitive(String name) {
 		return primitives.containsKey(name);
 	}
@@ -289,7 +305,7 @@ public class StructNode {
 
 	public <T> T smartCastPrimitive(T target, Class targetClass, String name) {
 		String value = getPrimitive(name);
-		System.out.print(log_loading ? "SMART CONVERSION: " + name + " = " + value + "\n" : "");
+		System.out.print(Struct.log_loading ? "SMART CONVERSION: " + name + " = " + value + "\n" : "");
 		try {
 			Field field = targetClass.getDeclaredField(name);
 			field.setAccessible(true);
@@ -318,17 +334,17 @@ public class StructNode {
 		return smartCastStruct(target, targetClass, node, recursive, "_");
 	}
 	private <T> T smartCastStruct(T target, Class targetClass, StructNode node, boolean recursive, String in) {
-		System.out.print(log_loading ? in + "IN\n" : "");
+		System.out.print(Struct.log_loading ? in + "IN\n" : "");
 		for (String index : node.getStructChild()) {
 			try {
 				StructNode actualNode = node.getStructSafe(index);
-				System.out.print(log_loading ? in + "1: " + index + "\n" : "");
+				System.out.print(Struct.log_loading ? in + "1: " + index + "\n" : "");
 				Field field = targetClass.getDeclaredField(index);
 				field.setAccessible(true);
 				Object fieldObject = field.get(targetClass.newInstance());
 				if (recursive) fieldObject = smartCastStruct(fieldObject, field.getType(), actualNode, true, in + in);
 				for (String i : actualNode.getPrimitiveChild()) {
-					System.out.print(log_loading ? in + "2: " + field.getType() + " : " + i + "\n" + in : "");
+					System.out.print(Struct.log_loading ? in + "2: " + field.getType() + " : " + i + "\n" + in : "");
 					fieldObject = actualNode.smartCastPrimitive(fieldObject, field.getType(), i);
 				}
 				field.set(target, fieldObject);
@@ -336,15 +352,15 @@ public class StructNode {
 				e.printStackTrace();
 			}
 		}
-		System.out.print(log_loading ? in + "OUT\n" : "");
+		System.out.print(Struct.log_loading ? in + "OUT\n" : "");
 		return target;
 	}
 
 	public <T> T loadObjectFromStruct(T target, Class targetClass) {
-		System.out.print(log_loading ? "\n" : "");
+		System.out.print(Struct.log_loading ? "\n" : "");
 		for (String prim : getPrimitiveChild()) target = smartCastPrimitive(target, targetClass, prim);
 		target = smartCastStruct(target, targetClass, true);
-		System.out.print(log_loading ? "\n" : "");
+		System.out.print(Struct.log_loading ? "\n" : "");
 		return target;
 	}
 
