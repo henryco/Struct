@@ -39,6 +39,14 @@ public class StructNode {
 		this.dirName = dirName;
 	}
 
+	public StructNode addPointer(String name, Object object) {
+		String forPut = "&"+name.substring(1);
+		pointers.put(forPut, object);
+		System.out.println("POINTER NAME: "+forPut);
+		if (object instanceof String) System.out.println("POINTER PRIM: "+(String)object);
+		else System.out.println("POINTER STRUCT: "+((StructNode)object).name);
+		return this;
+	}
 
 	public StructNode addPrimitive(String name, String value) {
 		this.primitives.put(name, value);
@@ -67,7 +75,6 @@ public class StructNode {
 		}
 		return i;
 	}
-
 	public int getIntPath(int i, String name, String... path) {
 		try {
 			i = Integer.parseInt(getPathPrimitive(name, path));
@@ -83,7 +90,6 @@ public class StructNode {
 		}
 		return f;
 	}
-
 	public float getFloatPath(float f, String name, String... path) {
 		try {
 			f = Float.parseFloat(getPathPrimitive(name, path));
@@ -99,7 +105,6 @@ public class StructNode {
 		}
 		return b;
 	}
-
 	public boolean getBoolPath(boolean b, String name, String... path) {
 		try {
 			b = Boolean.parseBoolean(getPathPrimitive(name, path));
@@ -115,7 +120,6 @@ public class StructNode {
 		}
 		return s;
 	}
-
 	public String getStringPath(String s, String name, String... path) {
 		try {
 			s = getPathPrimitive(name);
@@ -127,7 +131,6 @@ public class StructNode {
 	public StructNode getStructSafe(int index) {
 		return getStructSafe(Integer.toString(index));
 	}
-
 	public StructNode getStructSafe(String... name) {
 		StructNode node = null;
 		try {
@@ -160,6 +163,9 @@ public class StructNode {
 	@SuppressWarnings("unchecked")
 	public <T extends String> T getPrimitive(String... name) throws StructContainerException {
 		for (String n : name) if (this.primitives.containsKey(n)) return (T) this.primitives.get(n);
+		//FIXME
+		for (String n : name) if (this.pointers.containsKey(("&"+n))) return (T) this.primitives.get("&"+n);
+		//FIXME
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
 		throw new StructContainerException(errMsg);
@@ -168,6 +174,9 @@ public class StructNode {
 	@SuppressWarnings("unchecked")
 	public <T extends StructNode> T getStruct(String... name) throws StructContainerException {
 		for (String n : name) if (this.structures.containsKey(n)) return (T) this.structures.get(n);
+		//FIXME
+		for (String n : name) if (this.structures.containsKey(("&"+n))) return (T) this.structures.get("&"+n);
+		//FIXME
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
 		throw new StructContainerException(errMsg);
@@ -190,12 +199,23 @@ public class StructNode {
 	@SuppressWarnings("unchecked")
 	public <E> E get(String... name) throws StructContainerException {
 		for (String n : name) {
-			if (primitives.containsKey(n)) return (E) primitives.get(n);
+			if (primitives.containsKey(n)) return (E) this.primitives.get(n);
 			if (structures.containsKey(n)) return (E) this.structures.get(n);
+			//FIXME
+			if (pointers.containsKey("&"+n)) return (E) this.pointers.get("&"+n);
+			//FIXME
 			if (this.name.equalsIgnoreCase(n)) return (E) this;
 		}
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
+		throw new StructContainerException(errMsg);
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> T getFromPointer(String ... point){
+		for (String n : point) if (this.pointers.containsKey((n))) return (T) this.pointers.get(n);
+		String errMsg = "";
+		for (String n : point) errMsg += " " + n;
 		throw new StructContainerException(errMsg);
 	}
 

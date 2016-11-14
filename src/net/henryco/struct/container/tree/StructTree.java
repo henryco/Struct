@@ -54,11 +54,32 @@ public class StructTree {
 					System.out.print("pointer:["+line[0]+"]  link:[...");
 					for (int k = 1; k < line.length - 1; k++) System.out.print(" ->"+line[k]);
 					System.out.print("]  target:["+line[line.length-1]+"]\n");
+
+					if (line.length > 0) {
+						StructNode actualPointNode = actual;
+						while (line.length > 2 && !actualPointNode.containsStruct(line[1])) {
+							actualPointNode = actualPointNode.getParent();
+							if (actualPointNode == null) break;
+						}
+						if (actualPointNode != null) {
+							for (int k = 1; k < line.length - 1; k++) actualPointNode = actualPointNode.getStructSafe(line[k]);
+							if (actualPointNode != null) actual.addPointer(line[0], actualPointNode.get(line[line.length - 1]));
+							System.out.println("POINTER FROM: ");
+							System.out.println(actualPointNode);
+						}
+					}
+				}
+				else if (line[0].startsWith("&")) {
+					String nn ="";
+					for (String l : line) nn += l;
+					System.out.println(nn);
 				}
                 else {
                     String[] primitive = new String[]{line[line.length - 2], line[line.length - 1]};
-                    actual.addPrimitive(primitive[0], primitive[1]);
-                    storage.put(primitive[0], primitive[1]);
+                    if (primitive[1].startsWith("&"))
+                    	primitive[1] = actual.getFromPointer(primitive[1]);
+					actual.addPrimitive(primitive[0], primitive[1]);
+					storage.put(primitive[0], primitive[1]);
                 }
             }
         }

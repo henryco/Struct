@@ -14,6 +14,8 @@ shapeObjects: {
 			}
 		}
 		*test = bodyDef::other::angularDamping
+		//*lol = &test;
+		showMe = &test;
 		polygon[0]: {
 			0: [762.0, 674.0]
 			1: [1.0, 674.0]
