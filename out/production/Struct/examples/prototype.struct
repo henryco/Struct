@@ -1,4 +1,4 @@
-#type struct
+#import struct
 
 proto {
 	variable: 50

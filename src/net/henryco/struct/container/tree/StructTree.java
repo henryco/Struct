@@ -55,50 +55,43 @@ public class StructTree {
 					System.out.print(Struct.log_loading ? "pointer:["+line[0]+"]  link:[..." : "");
 					for (int k = 1; k < line.length - 1; k++) System.out.print(Struct.log_loading ? " ->"+line[k]: "");
 					System.out.print(Struct.log_loading ? "]  target:["+line[line.length-1]+"]\n" : "");
-
-					if (line.length > 0) {
-						StructNode actualPointNode = actual;
-						while (line.length > 2 && !actualPointNode.containsStruct(line[1])) {
-							actualPointNode = actualPointNode.getParent();
-							if (actualPointNode == null || actualPointNode == mainNode) break;
-						}
-						if (actualPointNode != null) {
-							for (int k = 1; k < line.length - 1; k++) actualPointNode = actualPointNode.getStructSafe(line[k]);
-							if (actualPointNode != null) actual.addPointer(line[0], actualPointNode.get(line[line.length - 1]));
-						}
-					}
+					StructNode actualPointNode = getTreePoint(line, actual);
+					if (actualPointNode != null) actual.addPointer(line[0], actualPointNode.get(line[line.length - 1]));
 				}
 				else if (line[0].startsWith("&")) {
 					//TODO
 				}
                 else {
-                    String[] primitive = new String[]{line[line.length - 2], line[line.length - 1]};
-                    if (primitive[1].startsWith("&")){
-						StructNode pointActualNode = actual;
-						while (!pointActualNode.containsPointer(primitive[1])) {
-							pointActualNode = pointActualNode.getParent();
-							if (pointActualNode == null || pointActualNode == mainNode) {
-								pointActualNode = actual;
-								while (!pointActualNode.contains(primitive[1].substring(1))) {
-									pointActualNode = pointActualNode.getParent();
-									if (pointActualNode == null || pointActualNode == mainNode) break;
+					if (line[1].startsWith("&")){
+						StructNode pointActualNode = null;
+						if (line.length == 2) {
+							pointActualNode = actual;
+							while (!pointActualNode.containsPointer(line[1])) {
+								pointActualNode = pointActualNode.getParent();
+								if (pointActualNode == null || pointActualNode == mainNode) {
+									pointActualNode = actual;
+									while (!pointActualNode.contains(line[1].substring(1))) {
+										pointActualNode = pointActualNode.getParent();
+										if (pointActualNode == null || pointActualNode == mainNode) break;
+									}
+									break;
 								}
-								break;
 							}
 						}
-						if (pointActualNode != null) {
 
-							Object putObj = pointActualNode.getFromPointer(primitive[1]);
-							if (putObj instanceof String) actual.addPrimitive(primitive[0], (String)putObj);
+						if (pointActualNode != null) {
+							Object putObj = pointActualNode.getFromPointer(line[line.length - 1]);
+							if (putObj instanceof String) actual.addPrimitive(line[0], (String)putObj);
 							else {
 								if (Struct.log_loading) System.out.println("actual put: "+pointActualNode.getParent().name+"->"+pointActualNode.name);
-								actual.addStructure(((StructNode)putObj).almostCopy(actual, primitive[0]));
+								actual.addStructure(((StructNode)putObj).almostCopy(actual, line[0]));
 							}
-							storage.put(primitive[0], putObj);
+							storage.put(line[0], putObj);
 						}
-					} else {
-						actual.addPrimitive(primitive[0], primitive[1]);
-						storage.put(primitive[0], primitive[1]);
+					}
+					else {
+						actual.addPrimitive(line[0], line[1]);
+						storage.put(line[0], line[1]);
 					}
                 }
             }
@@ -131,4 +124,22 @@ public class StructTree {
 		return "\n:: TREE VIEW ::\n"+this.mainNode.toString()+"\n:: END TREE VIEW ::\n";
     }
 
+
+    private StructNode getTreePoint(String[] line, StructNode actual) {
+		if (line.length > 0) {
+			StructNode actualPointNode = actual;
+			while (line.length > 2 && !actualPointNode.containsStruct(line[1])) {
+				actualPointNode = actualPointNode.getParent();
+				if (actualPointNode == null || actualPointNode == mainNode) break;
+			}
+			if (actualPointNode != null) {
+				for (int k = 1; k < line.length - 1; k++) {
+					actualPointNode = actualPointNode.getStructSafe(line[k]);
+					if (actualPointNode == null) break;
+				}
+				if (actualPointNode != null) return actualPointNode;
+			}
+		}
+		return null;
+	}
 }

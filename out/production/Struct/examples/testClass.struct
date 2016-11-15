@@ -1,0 +1,22 @@
+#import struct
+#import src/examples/prototype.struct
+
+testClass {
+	*cre = new void;
+	testVal &cre
+	
+	*prototypus = new proto::variable
+	
+	trueVal = &prototypus
+	proTest = &prototypus
+	proTest = 240;
+	
+	test2 = &prototypus
+	test3 = &proTest
+	
+	*finVal = new proto
+	finVal = &finVal
+	
+	*ou = &new proto
+
+}

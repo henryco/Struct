@@ -290,19 +290,23 @@ public class StructNode {
 		throw new StructContainerException(errMsg);
 	}
 
-	public String printTreeView(int increment, String space) {
+	public String printTreeView(int increment, String space, boolean full) {
 
 		String spaces = "";
 		for (int i = 0; i < increment; i++) spaces = spaces + "" + space;
-		String sName = spaces + this.name;
-		String[] primKeySet = primitives.keySet().toArray(new String[primitives.size()]);
-		for (String key : primKeySet)
-			sName += "\n" + spaces + "" + space + key + ": " + this.getPrimitive(key);
-		String[] structKeySet = structures.keySet().toArray(new String[structures.size()]);
-		for (String key : structKeySet) {
-			StructNode child = this.getStruct(key);
-			sName += "\n" + child.printTreeView(increment + indent, space);
+		String sName = "";
+		if (!this.name.equalsIgnoreCase("imports") || full) {
+			sName = spaces + this.name;
+			String[] primKeySet = primitives.keySet().toArray(new String[primitives.size()]);
+			for (String key : primKeySet)
+				sName += "\n" + spaces + "" + space + key + ": " + this.getPrimitive(key);
+			String[] structKeySet = structures.keySet().toArray(new String[structures.size()]);
+			for (String key : structKeySet) {
+				StructNode child = this.getStruct(key);
+				sName += "\n" + child.printTreeView(increment + indent, space, full);
+			}
 		}
+
 		return sName;
 	}
 
@@ -369,7 +373,10 @@ public class StructNode {
 
 	@Override
 	public String toString() {
-		return printTreeView(0, space);
+		return printTreeView(0, space, false);
 	}
 
+	public String printFullMem() {
+		return printTreeView(0, space, true);
+	}
 }

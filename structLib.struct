@@ -1,0 +1,11 @@
+//Struct file, by @HenryCo since 2k16
+#sugar -> , 
+#sugar external ext.file
+#sugar 'new ' imports'::spaces::'
+imports: {
+	spaces: {
+		null = 0;
+		void = &null;
+		Void(&void)
+	}
+}

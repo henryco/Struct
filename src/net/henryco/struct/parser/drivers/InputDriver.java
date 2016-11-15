@@ -1,7 +1,6 @@
 package net.henryco.struct.parser.drivers;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -41,14 +40,11 @@ public class InputDriver {
         String textLine;
         long time0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(url));
-            time0 = System.nanoTime();
+			time0 = System.nanoTime();
+			Object[] arrList = readAndLoadLists(headerList, bodyList, new File(url));
+			headerList = (List<String[]>) arrList[0];
+			bodyList = (List<String[]>) arrList[1];
 
-            while ((textLine = br.readLine()) != null) {
-				Object[] arrList = readAndLoadLists(headerList, bodyList, textLine);
-				headerList = (List<String[]>) arrList[0];
-				bodyList = (List<String[]>) arrList[1];
-            }
             bodyList = prepareBrackets(bodyList, ARRAY_TYPES, STRING_TYPES, includeTxt);
             bodyList = prepareArrayConstructors(prepareDots(bodyList.stream().filter(b -> b.length > 0).collect(Collectors.toCollection(ArrayList::new))), ARRAY_TYPES);
 
@@ -65,30 +61,36 @@ public class InputDriver {
         return returnListArray;
     }
 
-    private Object[] readAndLoadLists(List<String[]>header, List<String[]>body, String inputLine) {
+	@SuppressWarnings("unchecked")
+    private Object[] readAndLoadLists(List<String[]>header, List<String[]>body, File structFile) throws IOException{
+		System.out.println("IN PROCESS");
+		String textLine;
+		BufferedReader br = new BufferedReader(new FileReader(structFile));
+		while ((textLine = br.readLine()) != null) {
+			String trimmedLine = textLine.trim();
+			if (checkPrep(trimmedLine)) {
+				String[] headers = splitHeader(replaceFor(trimmedLine, EQUALS_TYPES, ":").trim(), PREPROCESSOR_TYPES, SPLIT_TYPES);
+				for (int i = 0; i < headers.length; i++) headers[i] = headers[i].substring(headers[i].startsWith(" ")? 1 : 0);
+				header.add(processHeaderLine(headers));
+				Object[] arrayLists = loadImports(header, body, headers);
+				if (arrayLists != null) {
+					header = (List<String[]>) arrayLists[0];
+					body = (List<String[]>) arrayLists[1];
+				}
+			} else if (checkBody(trimmedLine, COMMENT_TYPES)) {
 
-		String trimmedLine = inputLine.trim();
+				trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
+				trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
+				trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+				trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
 
-		if (checkPrep(trimmedLine)) {
-			String[] headers = splitHeader(replaceFor(trimmedLine, EQUALS_TYPES, ":").trim(), PREPROCESSOR_TYPES, SPLIT_TYPES);
-			for (int i = 0; i < headers.length; i++) headers[i] = headers[i].substring(headers[i].startsWith(" ")? 1 : 0);
-			header.add(processHeaderLine(headers));
-			loadImports(header, body, headers);
+				//TODO add operator mark
 
-		} else if (checkBody(trimmedLine, COMMENT_TYPES)) {
-
-			trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
-			trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
-			trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
-			trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
-
-			//TODO add operator mark
-
-			String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-			for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
-			body.add(tokeLine);
+				String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
+				for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
+				body.add(tokeLine);
+			}
 		}
-
 		return new Object[]{header, body};
 	}
 
@@ -145,15 +147,41 @@ public class InputDriver {
 		return wordList.toArray(new String[wordList.size()]);
 	}
 
-	private static ArrayList<String[]>[] loadImports(List<String[]> headerList, List<String[]> bodyList, String[] lineWords) {
-		if (lineWords[0].equalsIgnoreCase("import")) {
+	@SuppressWarnings("unchecked")
+	private Object[] loadImports(List<String[]> headerList, List<String[]> bodyList, String[] lineWords) throws IOException {
+		for (String n : lineWords) System.out.print("|"+n+"| ");
+		if (lineWords[0].equalsIgnoreCase("#import")) {
+			Object[] arrList = null;
 			if (lineWords[1].equalsIgnoreCase("struct")) {
-
+				if(!StructDef.instance().called) {
+					arrList = readAndLoadLists(headerList, bodyList, StructDef.STRUCT_LIBRARY);
+					StructDef.instance().called = true;
+				}
 			} else {
-
+				File importFile = File.createTempFile("transit_"+hashCode(), "struct");
+				FileWriter importWriter = new FileWriter(importFile);
+				BufferedReader reader = new BufferedReader(new FileReader(lineWords[1]));
+				String contain;
+				boolean firstTime = true;
+				StringBuilder outValue = new StringBuilder();
+				while ((contain = reader.readLine()) != null) {
+					if (firstTime && !contain.startsWith("#") && !contain.equalsIgnoreCase("\n")) {
+						firstTime = false;
+						outValue.append("\nimports: {\n").append("\tspaces: {\n");
+					}
+					outValue.append(contain).append("\n");
+				}
+				outValue.append("\n}\n}\n");
+				importWriter.write(outValue.toString());
+				importWriter.close();
+				arrList = readAndLoadLists(headerList, bodyList, importFile);
+			}
+			if (arrList != null) {
+				headerList = (ArrayList<String[]>) arrList[0];
+				bodyList = (ArrayList<String[]>) arrList[1];
 			}
 		}
-		return null;
+		return new Object[]{headerList, bodyList};
 	}
 
     private static String[] splitLine(String bodyLine, String[] exceptions, String[] eqSymbols, String[] ignored,
@@ -638,7 +666,37 @@ public class InputDriver {
         return this;
     }
 
-    public static class structDef {
-	//	public static String
+    private static class StructDef {
+		private static StructDef _instance = null;
+		boolean called = false;
+		static StructDef instance() {
+			return (_instance == null) ? new StructDef() : _instance;
+		}
+		static final File STRUCT_LIBRARY;
+		static final String libraryCode =
+				"//Struct file, by @HenryCo since 2k16\n" +
+						"#sugar -> , \n" +
+						"#sugar external ext.file\n" +
+						"#sugar 'new ' imports'::spaces::'\n" +
+						"imports: {\n" +
+						"\tspaces: {\n" +
+						"\t\tnull = 0;\n" +
+						"\t\tvoid = &null;\n" +
+						"\t\tVoid(&void)\n" +
+						"\t}\n" +
+						"}";
+		static {
+			STRUCT_LIBRARY = new File("structLib.struct");
+			System.out.println("<<<STRUCT INSTANCE>>>");
+			try {
+				if(STRUCT_LIBRARY.createNewFile()) {
+					FileWriter writer = new FileWriter(STRUCT_LIBRARY);
+					writer.write(libraryCode);
+					writer.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
