@@ -33,7 +33,7 @@ public class InputDriver {
 
     }
 
-
+	@SuppressWarnings("unchecked")
     public List<String[]>[] readStructData(String url) {
 
         List<String[]> bodyList = new ArrayList<>();
@@ -45,26 +45,9 @@ public class InputDriver {
             time0 = System.nanoTime();
 
             while ((textLine = br.readLine()) != null) {
-                String trimmedLine = textLine.trim();
-
-                if (checkImports(trimmedLine)) {
-                //    String[] headers = splitLine(trimmedLine, new String[0], EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-					String[] headers = splitHeader(replaceFor(trimmedLine, EQUALS_TYPES, ":").trim(), PREPROCESSOR_TYPES, SPLIT_TYPES);
-                    for (int i = 0; i < headers.length; i++) headers[i] = headers[i].trim();
-					headerList.add(processHeaderLine(headers));
-                } else if (checkBody(trimmedLine, COMMENT_TYPES)) {
-
-                    trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
-					trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
-					trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
-                    trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
-
-                    //TODO add operator mark
-
-                    String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-                    for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
-                    bodyList.add(tokeLine);
-                }
+				Object[] arrList = readAndLoadLists(headerList, bodyList, textLine);
+				headerList = (List<String[]>) arrList[0];
+				bodyList = (List<String[]>) arrList[1];
             }
             bodyList = prepareBrackets(bodyList, ARRAY_TYPES, STRING_TYPES, includeTxt);
             bodyList = prepareArrayConstructors(prepareDots(bodyList.stream().filter(b -> b.length > 0).collect(Collectors.toCollection(ArrayList::new))), ARRAY_TYPES);
@@ -76,14 +59,38 @@ public class InputDriver {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-        @SuppressWarnings("unchecked")
         List<String[]>[] returnListArray = new ArrayList[2];
         returnListArray[0] = headerList;
         returnListArray[1] = bodyList;
         return returnListArray;
     }
+
+    private Object[] readAndLoadLists(List<String[]>header, List<String[]>body, String inputLine) {
+
+		String trimmedLine = inputLine.trim();
+
+		if (checkPrep(trimmedLine)) {
+			String[] headers = splitHeader(replaceFor(trimmedLine, EQUALS_TYPES, ":").trim(), PREPROCESSOR_TYPES, SPLIT_TYPES);
+			for (int i = 0; i < headers.length; i++) headers[i] = headers[i].substring(headers[i].startsWith(" ")? 1 : 0);
+			header.add(processHeaderLine(headers));
+			loadImports(header, body, headers);
+
+		} else if (checkBody(trimmedLine, COMMENT_TYPES)) {
+
+			trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
+			trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
+			trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+			trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
+
+			//TODO add operator mark
+
+			String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
+			for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
+			body.add(tokeLine);
+		}
+
+		return new Object[]{header, body};
+	}
 
     private String[] processHeaderLine(String[] headerLine) {
 		if (headerLine != null && headerLine.length > 0) {
@@ -112,7 +119,6 @@ public class InputDriver {
 
 
 	private static String[] splitHeader(String line, String[] prepSeq, String[] splitSeq){
-
 		ArrayList<String> wordList = new ArrayList<>();
 		boolean incase = false;
 		char[] arr = line.toCharArray();
@@ -125,16 +131,29 @@ public class InputDriver {
 					break;
 				}
 			}
-			if (!incase) for (String s : splitSeq) {
-				if (arr[i] == s.charAt(0)) {
-					wordList.add(wordCreator.toString());
-					wordCreator = new StringBuffer();
+			if (i < arr.length) {
+				if (!incase) for (String s : splitSeq) {
+					if (arr[i] == s.charAt(0)) {
+						wordList.add(wordCreator.toString());
+						wordCreator = new StringBuffer();
+					}
 				}
+				wordCreator.append(arr[i]);
 			}
-			wordCreator.append(arr[i]);
 		}
 		if (wordCreator.length() > 0) wordList.add(wordCreator.toString());
 		return wordList.toArray(new String[wordList.size()]);
+	}
+
+	private static ArrayList<String[]>[] loadImports(List<String[]> headerList, List<String[]> bodyList, String[] lineWords) {
+		if (lineWords[0].equalsIgnoreCase("import")) {
+			if (lineWords[1].equalsIgnoreCase("struct")) {
+
+			} else {
+
+			}
+		}
+		return null;
 	}
 
     private static String[] splitLine(String bodyLine, String[] exceptions, String[] eqSymbols, String[] ignored,
@@ -540,7 +559,7 @@ public class InputDriver {
     }
 
 
-    private static boolean checkImports(String line) {
+    private static boolean checkPrep(String line) {
         return line.contains("#");
     }
 
@@ -619,4 +638,7 @@ public class InputDriver {
         return this;
     }
 
+    public static class structDef {
+	//	public static String
+	}
 }

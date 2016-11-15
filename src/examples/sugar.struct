@@ -1,8 +1,19 @@
 //Escapy shapes
-#type struct
+#import struct
+#import dir/file.struct
 #sugar next -> // аналог define из С/C++
 #sugar -> , // команда препроцессора заменяющая одну секвенцию другой (#sugar [seq1] [seq2])
 #sugar '< >' ,
+#sugar external ext.file
+#sugar 'new ' imports'::spaces::'
+
+imports.spaces: {
+	testClass {
+		classVal = 5;
+	}
+}
+
+
 shapeObjects: {
 	visible true;
 	container[0]: {
@@ -37,7 +48,11 @@ shapeObjects: {
 		*poly12 = polygon::9
 		polygon[12] = &poly12
 		
-		tempos = 5
-		inte = &tempos
+		proto.external = "prototype.struct"
+		*protoStructure = proto
+		otho = &protoStructure
+		
+		*tryClass = new testClass
+		objecto = &tryClass
 	}
 }
