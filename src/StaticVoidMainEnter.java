@@ -12,6 +12,7 @@ public class StaticVoidMainEnter {
 
 
     public static void main(String[] args) {
+		Struct.log_loading = true;
 		String cons = fromConsole(">> ");
         StructTree container = StructContainer.tree(Struct.printDataFile(Struct.in.readStructData(cons)), cons);
 		System.out.println(container);

@@ -184,7 +184,7 @@ public class StructNode {
 		for (String n : name) if (this.pointers.containsKey(("&"+n))) return (T) this.primitives.get("&"+n);
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
-		throw new StructContainerException(errMsg);
+		throw new StructContainerException(this.name+" -> "+errMsg);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -194,7 +194,7 @@ public class StructNode {
 		for (String n : name) if (this.structures.containsKey(("&"+n))) return (T) this.structures.get("&"+n);
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
-		throw new StructContainerException(errMsg);
+		throw new StructContainerException(this.name+" -> "+errMsg);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -222,16 +222,19 @@ public class StructNode {
 		}
 		String errMsg = "";
 		for (String n : name) errMsg += " " + n;
-		throw new StructContainerException(errMsg);
+		throw new StructContainerException(this.name+" -> "+errMsg);
 	}
 
 	@SuppressWarnings("unchecked")
-	public <T> T getFromPointer(String ... point){
+	public <T> T getFromPointer(String ... point) throws StructContainerException {
 		for (String n : point) if (this.pointers.containsKey(n)) return (T) this.pointers.get(n);
+		for (String n : point) if (this.primitives.containsKey(n.substring(1))) return (T) this.primitives.get(n.substring(1));
+		for (String n : point) if (this.structures.containsKey(n.substring(1))) return (T) this.structures.get(n.substring(1));
 		String errMsg = "";
 		for (String n : point) errMsg += " " + n;
-		throw new StructContainerException(errMsg);
+		throw new StructContainerException(this.name+" -> "+errMsg);
 	}
+
 
 	@SuppressWarnings("unchecked")
 	public <T extends StructNode> T getParent() {

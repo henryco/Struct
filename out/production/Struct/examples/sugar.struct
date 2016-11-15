@@ -36,6 +36,8 @@ shapeObjects: {
 		showMore.moar = &newPoly
 		*poly12 = polygon::9
 		polygon[12] = &poly12
-		//polygon[12]: &newPoly
+		
+		tempos = 5
+		inte = &tempos
 	}
 }

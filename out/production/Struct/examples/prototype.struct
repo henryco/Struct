@@ -1,0 +1,11 @@
+#type struct
+
+proto {
+	variable: 50
+	text "prototype"
+	array: {
+		x: 50
+		ty: 3
+		ze "fg"
+	} 
+}

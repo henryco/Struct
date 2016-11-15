@@ -32,6 +32,7 @@ public class StructTree {
 
     public StructTree loadContainer(List<String[]>[] data, String dirName) {
 
+		System.out.println("DIR NAME: "+dirName);
         long time0 = System.nanoTime();
         List<String[]> dataList = data[1];
         StructNode actual = mainNode;
@@ -59,7 +60,7 @@ public class StructTree {
 						StructNode actualPointNode = actual;
 						while (line.length > 2 && !actualPointNode.containsStruct(line[1])) {
 							actualPointNode = actualPointNode.getParent();
-							if (actualPointNode == null) break;
+							if (actualPointNode == null || actualPointNode == mainNode) break;
 						}
 						if (actualPointNode != null) {
 							for (int k = 1; k < line.length - 1; k++) actualPointNode = actualPointNode.getStructSafe(line[k]);
@@ -76,9 +77,17 @@ public class StructTree {
 						StructNode pointActualNode = actual;
 						while (!pointActualNode.containsPointer(primitive[1])) {
 							pointActualNode = pointActualNode.getParent();
-							if (pointActualNode == null) break;
+							if (pointActualNode == null || pointActualNode == mainNode) {
+								pointActualNode = actual;
+								while (!pointActualNode.contains(primitive[1].substring(1))) {
+									pointActualNode = pointActualNode.getParent();
+									if (pointActualNode == null || pointActualNode == mainNode) break;
+								}
+								break;
+							}
 						}
 						if (pointActualNode != null) {
+
 							Object putObj = pointActualNode.getFromPointer(primitive[1]);
 							if (putObj instanceof String) actual.addPrimitive(primitive[0], (String)putObj);
 							else {
