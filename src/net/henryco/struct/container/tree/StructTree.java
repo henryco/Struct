@@ -64,7 +64,7 @@ public class StructTree {
                 else {
 					if (line[1].startsWith("&")){
 						StructNode pointActualNode = null;
-						if (line.length == 2) {
+						if (line.length >= 2) {
 							pointActualNode = actual;
 							while (!pointActualNode.containsPointer(line[1])) {
 								pointActualNode = pointActualNode.getParent();
@@ -72,7 +72,10 @@ public class StructTree {
 									pointActualNode = actual;
 									while (!pointActualNode.contains(line[1].substring(1))) {
 										pointActualNode = pointActualNode.getParent();
-										if (pointActualNode == null || pointActualNode == mainNode) break;
+										if (pointActualNode == null || pointActualNode == mainNode) {
+											//TODO
+											break;
+										}
 									}
 									break;
 								}

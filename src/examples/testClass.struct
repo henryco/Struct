@@ -1,20 +1,21 @@
 #import struct
 #import src/examples/prototype.struct
 
+#salt &*(arg0, arg1) {
+#
+#}
+
 testClass {
-	*cre = new void;
-	testVal &cre
+	//*cre = new void;
+	//testVal &cre
 	
 	*prototypus = new proto::variable
-	
-	trueVal = &prototypus
-	proTest = &prototypus
-	proTest = 240;
-	
+	test1 = &prototypus
+	*prototypus = new null
 	test2 = &prototypus
-	test3 = &proTest
-	
-	*finVal = new proto
-	finVal = &finVal
+	test3 = &test1
 
+	*nullptr = new Void::0
+	arg = &nullptr
+	*nullptr = new void
 }

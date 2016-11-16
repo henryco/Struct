@@ -232,7 +232,7 @@ public class StructNode {
 		for (String n : point) if (this.structures.containsKey(n.substring(1))) return (T) this.structures.get(n.substring(1));
 		String errMsg = "";
 		for (String n : point) errMsg += " " + n;
-		throw new StructContainerException(this.name+" -> "+errMsg);
+		throw new StructContainerException(this.name+" ->"+errMsg);
 	}
 
 
