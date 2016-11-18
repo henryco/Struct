@@ -1,20 +1,23 @@
 #import struct
 #import src/examples/prototype.struct
 
-#salt &*(arg0, arg1) {
-#
+#salt -> arg0 arg1 {
+#	*nullptr = arg1
+#	arg0 = &nullptr
+#	*nullptr = new void	
 #}
 
+
 testClass {
-	//*cre = new void;
-	//testVal &cre
+
 	
 	*prototypus = new proto::variable
 	test1 = &prototypus
 	*prototypus = new null
 	test2 = &prototypus
 	test3 = &test1
-
+	//-> arg: new Void::0
+	function << (arg1, arg2)
 	*nullptr = new Void::0
 	arg = &nullptr
 	*nullptr = new void

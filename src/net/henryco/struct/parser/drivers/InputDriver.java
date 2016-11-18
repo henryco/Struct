@@ -77,21 +77,30 @@ public class InputDriver {
 					header = (List<String[]>) arrayLists[0];
 					body = (List<String[]>) arrayLists[1];
 				}
-			} else if (checkBody(trimmedLine, COMMENT_TYPES)) {
+			} else {
+				body = loadBody(body, trimmedLine);
 
-				trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
-				trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
-				trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
-				trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
-
-				//TODO add operator mark
-
-				String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
-				for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
-				body.add(tokeLine);
 			}
 		}
 		return new Object[]{header, body};
+	}
+
+	private List<String[]> loadBody(List<String[]> body, String trimmedLine) {
+
+		if (checkBody(trimmedLine, COMMENT_TYPES)) {
+			trimmedLine = removeComments(trimmedLine, COMMENT_TYPES);
+			trimmedLine = prepareReplaces(trimmedLine, REPLACE_FROM, REPLACE_TO);
+			trimmedLine = prepareOperators(trimmedLine, OPERATOR_TYPES, STRING_TYPES);
+			trimmedLine = prepareArrayIndexes(trimmedLine, INDEX_TYPES, createMultiArray(EQUALS_TYPES, SPLIT_TYPES));
+
+			String[] tokeLine = splitLine(trimmedLine, createMultiArray(ARRAY_TYPES, STRING_TYPES), EQUALS_TYPES, IGNORED_TYPES, SPLIT_TYPES);
+			for (int i = 0; i < tokeLine.length; i++) tokeLine[i] = tokeBodyLine(tokeLine[i], ARRAY_TYPES, COMMENT_TYPES, STRING_TYPES, includeTxt);
+
+			//TODO
+
+			body.add(tokeLine);
+		}
+		return body;
 	}
 
     private String[] processHeaderLine(String[] headerLine) {
@@ -110,6 +119,11 @@ public class InputDriver {
 			}
 		}
 		return headerLine;
+	}
+
+	private String[] processSaltLine(String[] headerLine) {
+
+		return null;
 	}
 
     private static void printUnderlined(String msg, String sym) {
@@ -149,6 +163,7 @@ public class InputDriver {
 
 	@SuppressWarnings("unchecked")
 	private Object[] loadImports(List<String[]> headerList, List<String[]> bodyList, String[] lineWords) throws IOException {
+		System.out.println();
 		for (String n : lineWords) System.out.print("|"+n+"| ");
 		if (lineWords[0].equalsIgnoreCase("#import")) {
 			Object[] arrList = null;
@@ -286,6 +301,17 @@ public class InputDriver {
 		return line;
 	}
 
+	private List<String[]> prepareLongReplaces(List<String[]> body, String line[], String[] trigger, String[] args, String[][] longSeq) {
+
+		for (int i = 0; i < trigger.length; i++)
+			if (line[0].contentEquals(trigger[i])) {
+				for (String sequence : longSeq[i])
+					body = loadBody(body, sequence);
+				return body;
+			}//TODO
+		return body;
+	}
+
     private static String prepareArrayIndexes(String line, String[] arrIndex, String[] exc) {
         StringBuilder builder = new StringBuilder();
         char[] arr = line.toCharArray();
@@ -314,6 +340,7 @@ public class InputDriver {
         if (needRepeat) return prepareArrayIndexes(builder.toString(), arrIndex, exc);
         return builder.toString();
     }
+
 
     private static String prepareOperators(String line, String[] operators, String[] txtTypes) {
 
