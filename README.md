@@ -1,6 +1,9 @@
 <font size="20"><b>Struct</b> : <br>
 	markup.language {}
 	<br></font>
+Last added: variables, pointers, linker, macros (preprocessor), multidem arrays and primitive operators.
+	
+	
 <br><b><a href="https://github.com/henryco/Struct/blob/master/src/examples/example.struct">-> Code example 1</a>
 <br><b><a href="https://github.com/henryco/Struct/blob/master/src/examples/example2.struct">-> Code example 2</a>
 
