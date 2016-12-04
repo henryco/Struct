@@ -1,6 +1,7 @@
 package net.henryco.struct.container.tree;
 
 import net.henryco.struct.Struct;
+import net.henryco.struct.StructLoadable;
 import net.henryco.struct.container.StructContainer;
 import net.henryco.struct.container.exceptions.StructContainerException;
 
@@ -326,7 +327,7 @@ public class StructNode {
 			else if (filedObject instanceof Long) field.set(target, Long.parseLong(value));
 			else if (filedObject instanceof String) field.set(target, value);
 		} catch (Exception e) {
-			e.printStackTrace();
+			if (Struct.log_loading) e.printStackTrace();
 		}
 		return target;
 	}
@@ -341,22 +342,57 @@ public class StructNode {
 		return smartCastStruct(target, targetClass, node, recursive, "_");
 	}
 	private <T> T smartCastStruct(T target, Class targetClass, StructNode node, boolean recursive, String in) {
-		System.out.print(Struct.log_loading ? in + "IN\n" : "");
+		System.out.print(Struct.log_loading ? in + "IN: "+target.getClass().getName()+"\n" : "");
 		for (String index : node.getStructChild()) {
 			try {
-				StructNode actualNode = node.getStructSafe(index);
-				System.out.print(Struct.log_loading ? in + "1: " + index + "\n" : "");
-				Field field = targetClass.getDeclaredField(index);
-				field.setAccessible(true);
-				Object fieldObject = field.get(targetClass.newInstance());
-				if (recursive) fieldObject = smartCastStruct(fieldObject, field.getType(), actualNode, true, in + in);
-				for (String i : actualNode.getPrimitiveChild()) {
-					System.out.print(Struct.log_loading ? in + "2: " + field.getType() + " : " + i + "\n" + in : "");
-					fieldObject = actualNode.smartCastPrimitive(fieldObject, field.getType(), i);
+				System.out.println("->"+index);
+				if (!index.equalsIgnoreCase("java")) {
+					StructNode actualNode = node.getStructSafe(index);
+					System.out.print(Struct.log_loading ? in + "1: " + index + "\n" : "");
+					Field field = targetClass.getDeclaredField(index);
+					field.setAccessible(true);
+					Object fieldObject = field.get(targetClass.newInstance());
+					String eqName = "";
+					if (actualNode.getStructChild().length > 0) {
+						eqName = actualNode.getStructChild()[0];
+						if (recursive) {
+							System.out.println("ENTER: " +actualNode.name +" : "+eqName);
+							Class cloF = (eqName.equalsIgnoreCase("java")) ? targetClass : field.getType();
+							fieldObject = smartCastStruct(eqName.equalsIgnoreCase("java") ? target : fieldObject, cloF, actualNode, true, in + in);
+						}
+					}
+				//	else {
+						for (String i : actualNode.getPrimitiveChild()) {
+							System.out.print(Struct.log_loading ? in + "2: " + field.getType() + " : " + i + "\n" + in : "");
+							fieldObject = actualNode.smartCastPrimitive(fieldObject, field.getType(), i);
+						}
+						if (!eqName.equalsIgnoreCase("java")) field.set(target, fieldObject);
+				//	}
+				} else {
+					System.out.println("NODE: "+node.parent.name+"/"+node.name);
+					String[] args = node.getPath("java/field").getPrimitiveArray();
+					String fieldName = args[args.length - 1];
+					String urlName = "";
+					for (int i = 0; i < args.length - 1; i++) urlName += (i > 0 && !args[i].startsWith("$")) ? "."+args[i] : args[i];
+
+					System.out.println("NAME: "+target.getClass().getName());
+					Class sourceClass = Class.forName(urlName);
+					Field sourceField = sourceClass.getDeclaredField(fieldName);
+					Field targetField = targetClass.getDeclaredField(node.name);
+					sourceField.setAccessible(true);
+					targetField.setAccessible(true);
+					Object sourceObject = null;
+					try {
+						sourceObject = sourceField.get(sourceClass.newInstance());
+					} catch (Exception e) {
+						sourceObject = sourceField.get(sourceClass);
+					}
+
+					targetField.set(target, sourceObject);
+
 				}
-				field.set(target, fieldObject);
 			} catch (Exception e) {
-				e.printStackTrace();
+				if (Struct.log_loading) e.printStackTrace();
 			}
 		}
 		System.out.print(Struct.log_loading ? in + "OUT\n" : "");
@@ -367,6 +403,10 @@ public class StructNode {
 		System.out.print(Struct.log_loading ? "\n" : "");
 		for (String prim : getPrimitiveChild()) target = smartCastPrimitive(target, targetClass, prim);
 		target = smartCastStruct(target, targetClass, true);
+		if (target instanceof StructLoadable) {
+			StructLoadable loadable = ((StructLoadable) target).loadFromStruct();
+			if (loadable != null) target = (T) loadable;
+		}
 		System.out.print(Struct.log_loading ? "\n" : "");
 		return target;
 	}

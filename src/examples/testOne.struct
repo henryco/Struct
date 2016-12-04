@@ -1,0 +1,7 @@
+#import struct
+testOne {
+	two = 125;
+	text "HOPE"
+	nope: 1555
+	one.java.field("test", "TestOne", "$inner", "$next", "none")
+}
