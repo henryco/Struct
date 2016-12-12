@@ -2,6 +2,11 @@
 #sugar -> , 
 #sugar external ext.file
 #sugar 'new ' imports'::spaces::'
+#sugar \( ' \('
+#sugar 'function \{' 'function: \{'
+#sugar 'function  \{' 'function: \{'
+#sugar 'function ' 'function.'
+#sugar 'function  ' 'function.'
 imports: {
 	spaces: {
 		null = 0;

@@ -14,11 +14,11 @@ public class MainTest {
 
 		Struct.log_loading = true;
 
-		TestOne one = new TestOne();
-		System.out.println(one.getClass());
+		//TestOne one = new TestOne();
+		//System.out.println(one.getClass());
 		System.out.println(new StructTree(inDir+"testOne.struct").mainNode.getStruct("testOne"));
-		one = (new StructTree(inDir+"testOne.struct").mainNode.getStruct("testOne")).loadObjectFromStruct(one, TestOne.class);
+		//one = (new StructTree(inDir+"testOne.struct").mainNode.getStruct("testOne")).loadObjectFromStruct(one, TestOne.class);
 
-		System.out.println("FINAL: "+one);
+		//System.out.println("FINAL: "+one);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 
@@ -109,6 +110,8 @@ public class InputDriver {
 				String[] from = new String[REPLACE_FROM.length + 1];
 				String[] to = new String[from.length];
 				for (int i = 0; i < from.length - 1; i++) {
+					//from[i] = checkRegExCLose(REPLACE_FROM[i]);
+					//to[i] = checkRegExCLose(REPLACE_TO[i]);
 					from[i] = REPLACE_FROM[i];
 					to[i] = REPLACE_TO[i];
 				}
@@ -119,6 +122,31 @@ public class InputDriver {
 			}
 		}
 		return headerLine;
+	}
+
+	private static final String[] cloSeq = new String[]{"\\[", "\\]", "\\(", "\\)", "\\*"};
+	private static String checkRegExCLose(String seq) {
+		System.out.println("CLO");
+		System.out.println(Pattern.compile(seq).toString());
+
+		for (String s : cloSeq)
+			if (Pattern.quote(seq).matches(s)) {
+				String s1 = seq.substring(0, seq.indexOf(s));
+				String s2 = seq.substring(seq.indexOf(s), seq.length() - 1);
+				System.out.println("FIND: "+s1 + " | \\ |"+s2);
+				return s1 + "\\" + s2;
+			}
+		return seq;
+	}
+
+	private static boolean contains(String sym, String word) {
+
+		for (char c : word.toCharArray()) {
+			System.out.println(sym.charAt(0) +" :: -- ::" +c);
+			if (sym.charAt(0) == c) return true;
+		}
+
+		return false;
 	}
 
 	private String[] processSaltLine(String[] headerLine) {
@@ -298,6 +326,7 @@ public class InputDriver {
 
     private static String prepareReplaces(String line, String[] from, String[] to) {
 		for (int i = 0; i < from.length; i++) line = line.replaceAll(from[i], to[i]);
+		//System.out.println("REPLACE:::   "+line);
 		return line;
 	}
 
@@ -705,6 +734,11 @@ public class InputDriver {
 						"#sugar -> , \n" +
 						"#sugar external ext.file\n" +
 						"#sugar 'new ' imports'::spaces::'\n" +
+						"#sugar "+ "\\("+" "+"' \\("+"'\n"+
+						"#sugar 'function \\{' 'function: \\{'\n" +
+						"#sugar 'function  \\{' 'function: \\{'\n" +
+						"#sugar 'function ' 'function.'\n" +
+						"#sugar 'function  ' 'function.'\n"+
 						"imports: {\n" +
 						"\tspaces: {\n" +
 						"\t\tnull = 0;\n" +

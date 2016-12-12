@@ -1,4 +1,5 @@
 #import struct
+
 testOne {
 	two = 125;
 	text "HOPE"
