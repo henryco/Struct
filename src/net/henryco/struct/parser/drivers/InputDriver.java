@@ -731,14 +731,20 @@ public class InputDriver {
 		static final File STRUCT_LIBRARY;
 		static final String libraryCode =
 				"//Struct file, by @HenryCo since 2k16\n" +
+						"\n" +
+						"#sugar ' --> ' .\n" +
+						"#sugar ' -->' .\n" +
+						"#sugar '--> ' .\n" +
+						"#sugar --> .\n" +
+						"\n" +
 						"#sugar -> , \n" +
 						"#sugar external ext.file\n" +
 						"#sugar 'new ' imports'::spaces::'\n" +
-						"#sugar "+ "\\("+" "+"' \\("+"'\n"+
+						"#sugar \\( ' \\('\n" +
 						"#sugar 'function \\{' 'function: \\{'\n" +
 						"#sugar 'function  \\{' 'function: \\{'\n" +
 						"#sugar 'function ' 'function.'\n" +
-						"#sugar 'function  ' 'function.'\n"+
+						"#sugar 'function  ' 'function.'\n" +
 						"imports: {\n" +
 						"\tspaces: {\n" +
 						"\t\tnull = 0;\n" +

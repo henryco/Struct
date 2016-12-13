@@ -7,12 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94403dc0-a95b-439b-96e1-6b78d6254f67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examples/testOne.struct" afterPath="$PROJECT_DIR$/src/examples/testOne.struct" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/structLib.struct" afterPath="$PROJECT_DIR$/structLib.struct" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Struct_jar/Struct.jar" afterPath="$PROJECT_DIR$/out/artifacts/Struct_jar/Struct.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructNode.class" afterPath="$PROJECT_DIR$/out/production/Struct/net/henryco/struct/container/tree/StructNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" afterPath="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/MainTest.java" afterPath="$PROJECT_DIR$/src/test/MainTest.java" />
     </list>
     <ignored path="Struct.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,17 +51,7 @@
             <state relative-caret-position="400">
               <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="docComment;class#StructTree#0" expanded="false" />
-                <element signature="e#567#568#0" expanded="false" />
-                <element signature="e#608#609#0" expanded="false" />
                 <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-                <element signature="e#3881#3882#0" expanded="false" />
-                <element signature="e#3916#3917#0" expanded="false" />
-                <element signature="e#3992#3993#0" expanded="false" />
-                <element signature="e#4036#4037#0" expanded="false" />
-                <element signature="e#4082#4083#0" expanded="false" />
-                <element signature="e#4171#4172#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -78,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StructNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="467" column="20" selection-start-line="467" selection-start-column="20" selection-end-line="467" selection-end-column="20" />
+            <state relative-caret-position="338">
+              <caret line="531" column="37" selection-start-line="531" selection-start-column="37" selection-end-line="531" selection-end-column="37" />
               <folding>
                 <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
                 <element signature="method#getFloat#0;class#StructNode#0" expanded="false" />
@@ -97,14 +86,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="InputDriver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="733" column="24" selection-start-line="733" selection-start-column="24" selection-end-line="733" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="725" column="20" selection-start-line="725" selection-start-column="20" selection-end-line="725" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,9 +101,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-              <folding>
-                <element signature="docComment;class#StructLoadable#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,8 +169,8 @@
         <option value="$PROJECT_DIR$/src/net/henryco/struct/StructLoadable.java" />
         <option value="$PROJECT_DIR$/src/test/TestOne.java" />
         <option value="$PROJECT_DIR$/src/test/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" />
         <option value="$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java" />
+        <option value="$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java" />
       </list>
     </option>
   </component>
@@ -304,6 +289,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -471,8 +458,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -985,11 +970,13 @@
       <workItem from="1481479517669" duration="868000" />
       <workItem from="1481484593868" duration="32000" />
       <workItem from="1481487190154" duration="19301000" />
+      <workItem from="1481580880301" duration="4633000" />
+      <workItem from="1481590970242" duration="1226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55942000" />
+    <option name="totallyTimeSpent" value="61801000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1075,9 +1062,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,17 +1088,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1139,9 +1114,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5960">
           <caret line="307" column="50" selection-start-line="307" selection-start-column="50" selection-end-line="307" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1167,17 +1140,7 @@
         <state relative-caret-position="1280">
           <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1203,9 +1166,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5960">
           <caret line="307" column="50" selection-start-line="307" selection-start-column="50" selection-end-line="307" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1239,17 +1200,7 @@
         <state relative-caret-position="1280">
           <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1275,9 +1226,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5960">
           <caret line="307" column="50" selection-start-line="307" selection-start-column="50" selection-end-line="307" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1311,17 +1260,7 @@
         <state relative-caret-position="1280">
           <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1347,9 +1286,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,17 +1320,7 @@
         <state relative-caret-position="1480">
           <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1419,9 +1346,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1455,17 +1380,7 @@
         <state relative-caret-position="1280">
           <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1495,9 +1410,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding>
-            <element signature="docComment;class#StructLoadable#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1514,17 +1427,7 @@
         <state relative-caret-position="400">
           <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#StructTree#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
             <element signature="method#printUnderlined#0;class#StructTree#0" expanded="false" />
-            <element signature="e#3881#3882#0" expanded="false" />
-            <element signature="e#3916#3917#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4036#4037#0" expanded="false" />
-            <element signature="e#4082#4083#0" expanded="false" />
-            <element signature="e#4171#4172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1533,7 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33380">
           <caret line="2907" column="0" selection-start-line="2907" selection-start-column="0" selection-end-line="2907" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1565,21 +1467,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="733" column="24" selection-start-line="733" selection-start-column="24" selection-end-line="733" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/java/jdk1.8.0_101/src.zip!/javax/lang/model/type/TypeMirror.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1587,7 +1478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1595,7 +1485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1609,8 +1498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/container/tree/StructNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="467" column="20" selection-start-line="467" selection-start-column="20" selection-end-line="467" selection-end-column="20" />
+        <state relative-caret-position="338">
+          <caret line="531" column="37" selection-start-line="531" selection-start-column="37" selection-end-line="531" selection-end-column="37" />
           <folding>
             <element signature="method#getIntPath#0;class#StructNode#0" expanded="false" />
             <element signature="method#getFloat#0;class#StructNode#0" expanded="false" />
@@ -1621,6 +1510,14 @@
             <element signature="method#getStringPath#0;class#StructNode#0" expanded="false" />
             <element signature="docComment;method#loadInstancedField#0;class#StructNode#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/henryco/struct/parser/drivers/InputDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="725" column="20" selection-start-line="725" selection-start-column="20" selection-end-line="725" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

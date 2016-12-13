@@ -321,7 +321,12 @@ public class StructNode {
 		try {
 			Field field = targetClass.getDeclaredField(name);
 			field.setAccessible(true);
-			Object filedObject = field.get(targetClass.newInstance());
+			Object filedObject;
+			try {
+				filedObject = field.get(targetClass.newInstance());
+			} catch (InstantiationException e) {
+				filedObject = field.get(target);
+			}
 			if (filedObject instanceof Float) field.set(target, getFloat(0, name));
 			else if (filedObject instanceof Integer) field.set(target, getInt(0, name));
 			else if (filedObject instanceof Boolean) field.set(target, getBool(false, name));
@@ -494,9 +499,11 @@ public class StructNode {
 									obj = field.get(Class.forName(pth).newInstance());
 								} catch (Exception ignored) {}
 							} else {
-								Object[] arrg = argNode.loadInstancedField(instancer);
-								typo = (Class) arrg[0];
-								obj = arrg[1];
+								if (instancer != null) {
+									Object[] arrg = argNode.loadInstancedField(instancer);
+									typo = (Class) arrg[0];
+									obj = arrg[1];
+								}
 							}
 							objts.add(obj);
 							types.add(typo);
@@ -513,7 +520,49 @@ public class StructNode {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public <T extends Object> T instanceAndInvokeObject(Object instancer, boolean loadFields, boolean invokeMethods) {
 
+		String[] nameOpt = new String[]{"name", "Name", "id", "ID"};
+		String[] consOpt = new String[]{"url", "URL", "link", "class"};
+
+		List<Class> listType = new ArrayList<>();
+		List<Object> listOb = new ArrayList<>();
+		StructNode[] args = getStructArray();
+		for (StructNode arg : args) {
+			if (!arg.name.equalsIgnoreCase("function") && !arg.name.equalsIgnoreCase("field")) {
+				Object[] arr = arg.loadInstancedField(instancer);
+				listType.add((Class) arr[0]);
+				listOb.add(arr[1]);
+			}
+		}
+		String cosntructorUrl = getString("error", consOpt);
+		Object instancedObject = instanceConstructor(cosntructorUrl, listType.toArray(new Class[0]), listOb.toArray(new Object[0]));
+
+		if (loadFields) {
+			StructNode filedNode = getStructSafe("field", "fields");
+			if (filedNode != null)
+				try {
+					instancedObject = filedNode.loadObjectFromStruct(instancedObject, instancedObject.getClass());
+				} catch (Exception ignored) {
+					ignored.printStackTrace();
+				}
+		}
+		if (invokeMethods) invokeFunctions(instancedObject, instancer);
+		return (T) instancedObject;
+	}
+
+	@SuppressWarnings("unchecked")
+	private static <T> T instanceConstructor(String name, Class[] classArr, Object[] objectArr) {
+		try {
+			Constructor constructor = ClassLoader.getSystemClassLoader().loadClass(name).getDeclaredConstructor(classArr);
+			constructor.setAccessible(true);
+			return (T) constructor.newInstance(objectArr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	private static String getPrimType(String word) {
 		switch (word) {
@@ -527,7 +576,6 @@ public class StructNode {
 			case "void": return "java.lang.Void";
 		}	return word;
 	}
-
 
 	public <T> T loadObjectFromStruct(T target, Class targetClass) {
 		System.out.print(Struct.log_loading ? "\n" : "");
