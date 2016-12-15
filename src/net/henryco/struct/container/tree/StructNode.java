@@ -6,10 +6,7 @@ import net.henryco.struct.StructLoadable;
 import net.henryco.struct.container.StructContainer;
 import net.henryco.struct.container.exceptions.StructContainerException;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
+import java.lang.reflect.*;
 import java.util.*;
 
 /**
@@ -415,48 +412,33 @@ public class StructNode {
 	 */
 	public Object[] loadInstancedField(Object source) {
 
+		final String[] typeNames = new String[]{"0", "type", "Type"};
+		final String[] valueNames = new String[]{"val", "1", "value", "Value"};
+
 		Class targetClass = null;
 		Object targetObject = null;
 		try {
-			try {
-				targetClass = ClassLoader.getSystemClassLoader().loadClass(getPrimType(getString("null", "0", "type", "Type")));
-			} catch (Exception ignored){}
-			try {
-				Method m = Class.class.getDeclaredMethod("getPrimitiveClass", String.class);
-				m.setAccessible(true);
-				targetClass = (Class) m.invoke(Class.class.getClass(), getString("null", "0", "type", "Type"));
-			} catch (Exception ignored){}
-
-			if (getStructSafe("val", "1", "value", "Value") != null) {
-				StructNode jv = getStructSafe("val", "1", "value", "Value").getStructSafe("java");
-				if (jv != null) {
-					StructNode inst = jv.getStructSafe("instanced");
-					if (inst != null) {
-						String value = inst.getString("null", "0", "field", "Field");
-						Field field = source.getClass().getDeclaredField(value);
-						field.setAccessible(true);
-						return new Object[]{targetClass, field.get(source)};
-					}
-				}
-			}
-			Constructor constructor = ClassLoader.getSystemClassLoader()
-					.loadClass(getPrimType(getString("Void", "type", "0", "Type"))).getDeclaredConstructor(String.class);
-			constructor.setAccessible(true);
-			Object object = constructor.newInstance(getString("null", "val", "1", "value", "Value"));
-			if (object instanceof Boolean) object = ((Boolean) object).booleanValue();
-			if (object instanceof Float) object = ((Float) object).floatValue();
-			if (object instanceof Integer) object = ((Boolean) object).booleanValue();
-			if (object instanceof Long) object = ((Float) object).floatValue();
-			if (object instanceof Short) object = ((Boolean) object).booleanValue();
-			if (object instanceof Double) object = ((Float) object).floatValue();
-			if (object instanceof Byte) object = ((Float) object).floatValue();
-			return new Object[]{targetClass, object};
-
+			return new Object[]{NODE_UTILS.getTargetClass(getString("Void",typeNames)), NODE_UTILS.loadByClass(this, getString("null", typeNames), source, valueNames)};
 		} catch (Exception e) {
-			e.printStackTrace();
+			try {
+				String typoName = getString("null", typeNames);
+				if (typoName.startsWith("_array_of_") || typoName.endsWith("_array_of_")) {
+					typoName = typoName.replaceAll("_array_of_", "").trim();
+					String[] valuesIndex = getStructSafe(valueNames).getChild();
+					targetClass = NODE_UTILS.getTargetClass(typoName);
+
+					Object objectArray = Array.newInstance(targetClass, valuesIndex.length);
+					for (int i = 0; i < valuesIndex.length; i++) {
+						Object arrElement = NODE_UTILS.loadByClass(getStruct(valueNames), typoName, source, valuesIndex[i]);
+						Array.set(objectArray, i, arrElement);
+					}
+					return new Object[]{objectArray.getClass(), objectArray};
+				}
+			} catch (Exception ex){}
 		}
 		return null;
 	}
+
 
 
 
@@ -479,7 +461,7 @@ public class StructNode {
 							Class typo = null;
 							Object obj = null;
 							try {
-								typo = Class.forName(getPrimType(argNode.getString("Void", typeOpt)));
+								typo = Class.forName(NODE_UTILS.getPrimType(argNode.getString("Void", typeOpt)));
 							} catch (Exception ignored){}
 							try {
 								Method m = Class.class.getDeclaredMethod("getPrimitiveClass", String.class);
@@ -488,10 +470,12 @@ public class StructNode {
 							} catch (Exception ignored){}
 							StructNode pathNode = null;
 							if (argNode.getStructSafe(valsOpt) != null)
-								if (argNode.getStructSafe(valsOpt).getStructSafe("java") != null)
-									pathNode = argNode.getStructSafe(valsOpt).getStructSafe("java").getStructSafe("global");
+								if (argNode.getStructSafe(valsOpt).getStructSafe("java") != null) {
+								//	pathNode = argNode.getStructSafe(valsOpt).getStructSafe("java").getStructSafe("global");
+								//TODO REMOVE LATER
+								}
 							if (pathNode != null) {
-								String pth = getPrimType(pathNode.getString("Void", typeOpt));
+								String pth = NODE_UTILS.getPrimType(pathNode.getString("Void", typeOpt));
 								String val = pathNode.getString("Void", "1", "val", "Value", "name");
 								Field field = Class.forName(pth).getDeclaredField(val);
 								field.setAccessible(true);
@@ -523,8 +507,7 @@ public class StructNode {
 	@SuppressWarnings("unchecked")
 	public <T extends Object> T instanceAndInvokeObject(Object instancer, boolean loadFields, boolean invokeMethods) {
 
-		String[] nameOpt = new String[]{"name", "Name", "id", "ID"};
-		String[] consOpt = new String[]{"url", "URL", "link", "class"};
+		String[] consOpt = new String[]{"url", "URL", "link", "class", "package"};
 
 		List<Class> listType = new ArrayList<>();
 		List<Object> listOb = new ArrayList<>();
@@ -532,12 +515,14 @@ public class StructNode {
 		for (StructNode arg : args) {
 			if (!arg.name.equalsIgnoreCase("function") && !arg.name.equalsIgnoreCase("field")) {
 				Object[] arr = arg.loadInstancedField(instancer);
-				listType.add((Class) arr[0]);
-				listOb.add(arr[1]);
+				Class oclass = (Class) arr[0];
+				Object oobj = arr[1];
+				listType.add(oclass);
+				listOb.add(oobj);
 			}
 		}
-		String cosntructorUrl = getString("error", consOpt);
-		Object instancedObject = instanceConstructor(cosntructorUrl, listType.toArray(new Class[0]), listOb.toArray(new Object[0]));
+		String cosntructorUrl = getString("error", consOpt) + "." + name;
+		Object instancedObject = NODE_UTILS.instanceConstructor(cosntructorUrl, listType.toArray(new Class[0]), listOb.toArray(new Object[0]));
 
 		if (loadFields) {
 			StructNode filedNode = getStructSafe("field", "fields");
@@ -552,30 +537,6 @@ public class StructNode {
 		return (T) instancedObject;
 	}
 
-	@SuppressWarnings("unchecked")
-	private static <T> T instanceConstructor(String name, Class[] classArr, Object[] objectArr) {
-		try {
-			Constructor constructor = ClassLoader.getSystemClassLoader().loadClass(name).getDeclaredConstructor(classArr);
-			constructor.setAccessible(true);
-			return (T) constructor.newInstance(objectArr);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	private static String getPrimType(String word) {
-		switch (word) {
-			case "boolean": return "java.lang.Boolean";
-			case "int": return "java.lang.Integer";
-			case "float": return "java.lang.Float";
-			case "short": return "java.lang.Short";
-			case "long": return "java.lang.Long";
-			case "double": return "java.lang.Double";
-			case "byte": return "java.lang.Byte";
-			case "void": return "java.lang.Void";
-		}	return word;
-	}
 
 	public <T> T loadObjectFromStruct(T target, Class targetClass) {
 		System.out.print(Struct.log_loading ? "\n" : "");
@@ -596,5 +557,100 @@ public class StructNode {
 
 	public String printFullMem() {
 		return printTreeView(0, space, true);
+	}
+
+
+
+
+	private static final class NODE_UTILS {
+
+		private static String getPrimType(String word) {
+			switch (word) {
+				case "boolean": return "java.lang.Boolean";
+				case "int": return "java.lang.Integer";
+				case "float": return "java.lang.Float";
+				case "short": return "java.lang.Short";
+				case "long": return "java.lang.Long";
+				case "double": return "java.lang.Double";
+				case "byte": return "java.lang.Byte";
+				case "void": return "java.lang.Void";
+			}	return word;
+		}
+
+
+		@SuppressWarnings("unchecked")
+		private static <T> T instanceConstructor(String name, Class[] classArr, Object[] objectArr) {
+			try {
+				Constructor constructor = ClassLoader.getSystemClassLoader().loadClass(name).getDeclaredConstructor(classArr);
+				constructor.setAccessible(true);
+				return (T) constructor.newInstance(objectArr);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+
+
+		private static Class getTargetClass(String className) {
+			Class retClass = null;
+			try {
+				retClass = ClassLoader.getSystemClassLoader().loadClass(NODE_UTILS.getPrimType(className));
+			} catch (Exception ignored){}
+			try {
+				Method m = Class.class.getDeclaredMethod("getPrimitiveClass", String.class);
+				m.setAccessible(true);
+				retClass = (Class) m.invoke(Class.class.getClass(), className);
+			} catch (Exception ignored){}
+			return retClass;
+		}
+
+
+		private static Object loadPrimitiveByClass(String className, String valueName) throws Exception {
+			Constructor constructor = ClassLoader.getSystemClassLoader()
+					.loadClass(NODE_UTILS.getPrimType(className)).getDeclaredConstructor(String.class);
+			constructor.setAccessible(true);
+			Object object = constructor.newInstance(valueName);
+			if (object instanceof Boolean) return ((Boolean) object).booleanValue();
+			if (object instanceof Float) return ((Float) object).floatValue();
+			if (object instanceof Integer) return ((Integer) object).intValue();
+			if (object instanceof Long) return ((Long) object).longValue();
+			if (object instanceof Short) return ((Short) object).shortValue();
+			if (object instanceof Double) return ((Double) object).doubleValue();
+			if (object instanceof Byte) return ((Byte) object).byteValue();
+			return object;
+		}
+
+
+		private static Object loadByClass(StructNode node, String className, Object source, String ... valueNames) throws Exception {
+
+			String[] pathVal = new String[]{"0", "link", "source", "class"};
+			String[] valsVal = new String[]{"1", "val", "Value", "name"};
+
+			if (node.getStructSafe(valueNames) != null) {
+				StructNode jv = node.getStructSafe(valueNames).getStructSafe("java");
+				if (jv != null) {
+					StructNode inst = jv.getStructSafe("instanced", "instance");
+					if (inst != null) {
+						String value = inst.getString("null", "0", "field", "Field");
+						Field field = source.getClass().getDeclaredField(value);
+						field.setAccessible(true);
+						return field.get(source);
+					}
+					inst = jv.getStructSafe("global", "static");
+					if (inst != null) {
+						String pth = inst.getString("Void", pathVal);
+						String val = inst.getString("Void", valsVal);
+						Field field = Class.forName(pth).getDeclaredField(val);
+						field.setAccessible(true);
+						try {
+							return field.get(Class.forName(pth).newInstance());
+						} catch (Exception ignored) {}
+					}
+				}
+			}
+			return loadPrimitiveByClass(className, node.getString("null", valueNames));
+		}
+
+
 	}
 }

@@ -745,6 +745,7 @@ public class InputDriver {
 						"#sugar 'function  \\{' 'function: \\{'\n" +
 						"#sugar 'function ' 'function.'\n" +
 						"#sugar 'function  ' 'function.'\n" +
+						"#sugar '\\[\\]' _array_of_\n" +
 						"imports: {\n" +
 						"\tspaces: {\n" +
 						"\t\tnull = 0;\n" +

@@ -1,4 +1,10 @@
 //Struct file, by @HenryCo since 2k16
+
+#sugar ' --> ' .
+#sugar ' -->' .
+#sugar '--> ' .
+#sugar --> .
+
 #sugar -> , 
 #sugar external ext.file
 #sugar 'new ' imports'::spaces::'

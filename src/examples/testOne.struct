@@ -1,8 +1,31 @@
 #import struct
+#sugar '\[\]' _array_of_
+
+
+var {
+	into {
+		type: int
+		val: 99
+	}
+	String "java.lang.String"
+	inDir = "test.MainTest"
+}
 
 testOne {
-	two = 125;
-	text "HOPE"
-	nope: 1555
-	one.java.field("test", "TestOne", "$inner", "$next", "none")
+	
+	*iv = var::into
+	*st = var::String
+	*dr = var::inDir
+
+	TestConstr([boolean[], [true, false, [java[instanced("teBool")]] ]], [int, 5], [&st, [java[global[&dr, inDir]]] ]);
+	TestConstr --> function {
+		setTeLong(["java.lang.Long", 1234450])
+		setTeFloat([ float, [java[global["test.MainTest", floVal]]] ])
+	}
+	TestConstr --> field {
+		fieldByte = 15
+		fieldShort: 25
+	}
+	TestConstr.package: "test"
 }
+
