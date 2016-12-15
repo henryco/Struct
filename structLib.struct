@@ -13,6 +13,7 @@
 #sugar 'function  \{' 'function: \{'
 #sugar 'function ' 'function.'
 #sugar 'function  ' 'function.'
+#sugar '\[\]' _array_of_
 imports: {
 	spaces: {
 		null = 0;

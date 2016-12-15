@@ -1,5 +1,4 @@
 #import struct
-#sugar '\[\]' _array_of_
 
 
 var {
@@ -9,6 +8,7 @@ var {
 	}
 	String "java.lang.String"
 	inDir = "test.MainTest"
+	test(test1[test2[1,2]])
 }
 
 testOne {
@@ -16,6 +16,7 @@ testOne {
 	*iv = var::into
 	*st = var::String
 	*dr = var::inDir
+
 
 	TestConstr([boolean[], [true, false, [java[instanced("teBool")]] ]], [int, 5], [&st, [java[global[&dr, inDir]]] ]);
 	TestConstr --> function {

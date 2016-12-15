@@ -19,11 +19,14 @@ public class MainTest {
 
 		Struct.log_loading = true;
 
-		StructNode node = new StructTree(inDir+"testOne.struct").mainNode.getStruct("testOne");
+		StructNode node = new StructTree(inDir+"testOne.struct").mainNode;
+		System.out.println(node+"\n");
+		node = node.getStruct("testOne");
 		System.out.println(node);
 
 		TestConstr test = node.getStruct("TestConstr").instanceAndInvokeObject(new MainTest(), true, true);
 		System.out.println(test);
+		System.out.println(new byte[0].getClass().getName());
 
 		/*
 		 * TEST OUTPUT:
