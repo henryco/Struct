@@ -30,3 +30,18 @@ testOne {
 	TestConstr.package: "test"
 }
 
+testTwo {
+
+	va.o.c = 10
+	*a = va::o::c
+	va.o.c = 15
+	*b = va::o::c
+	va.o.c = 21
+	va.o.a = &a
+	va.o.b = &b
+	d = *va::o::c
+	s = &d
+	va(o[d::d::c])
+	*www = new Void
+	www = &www
+}

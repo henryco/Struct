@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
  */
 public class InputDriver {
 
+	public static String PREFIX_PATH = "";
+
     private String[] INDEX_TYPES = new String[]{"[", "]"};
     private String[] ARRAY_TYPES = new String[]{"[", "]", "(", ")"};
     private String[] COMMENT_TYPES = new String[]{"//", "\\\\"};
@@ -732,11 +734,11 @@ public class InputDriver {
 		static final String libraryCode =
 				"//Struct file, by @HenryCo since 2k16\n" +
 						"\n" +
+						"#sugar 'string\\[\\]' \"java.lang.String\\[\\]\""+"\n"+
 						"#sugar ' --> ' .\n" +
 						"#sugar ' -->' .\n" +
 						"#sugar '--> ' .\n" +
 						"#sugar --> .\n" +
-						"\n" +
 						"#sugar -> , \n" +
 						"#sugar external ext.file\n" +
 						"#sugar 'new ' imports'::spaces::'\n" +
@@ -754,7 +756,7 @@ public class InputDriver {
 						"\t}\n" +
 						"}";
 		static {
-			STRUCT_LIBRARY = new File("structLib.struct");
+			STRUCT_LIBRARY = new File(PREFIX_PATH+"structLib.struct");
 			System.out.println("<<<STRUCT INSTANCE>>>");
 			try {
 				if(STRUCT_LIBRARY.createNewFile()) {

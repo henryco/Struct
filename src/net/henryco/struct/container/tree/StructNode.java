@@ -1,6 +1,5 @@
 package net.henryco.struct.container.tree;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.NumberType;
 import net.henryco.struct.Struct;
 import net.henryco.struct.StructLoadable;
 import net.henryco.struct.container.StructContainer;
@@ -84,6 +83,43 @@ public class StructNode {
 
 	public StructNode addStructure(StructNode[] struct) {
 		Arrays.stream(struct).forEach(st -> structures.put(st.name, st));
+		return this;
+	}
+
+
+	public StructNode removePrimitive(boolean byName, String ... primitive) {
+		if (byName) {
+			for (String s : primitive)
+				if (containsPrimitive(s)) {
+					primitives.remove(s);
+					return this;
+				}
+		} else {
+			for (String val : getPrimitiveChild())
+				if (getPrimitive(val).equalsIgnoreCase(primitive[0])) {
+					removePrimitive(true, val);
+					return this;
+				}
+		}
+		return this;
+	}
+
+
+	public StructNode removeStruct(String ... nodes) {
+		for (String s : nodes)
+			if (containsStruct(s)) {
+				structures.remove(s);
+				return this;
+			}
+		return this;
+	}
+
+	public StructNode removePointer(String ... pointers) {
+		for (String s : pointers)
+			if (containsPointer(s)) {
+				this.pointers.remove(s);
+				return this;
+			}
 		return this;
 	}
 
@@ -483,19 +519,44 @@ public class StructNode {
 									obj = field.get(Class.forName(pth).newInstance());
 								} catch (Exception ignored) {}
 							} else {
-								if (instancer != null) {
-									Object[] arrg = argNode.loadInstancedField(instancer);
-									typo = (Class) arrg[0];
-									obj = arrg[1];
-								}
+								Object[] arrg = argNode.loadInstancedField(instancer);
+								typo = (Class) arrg[0];
+								obj = arrg[1];
 							}
 							objts.add(obj);
 							types.add(typo);
 						}
 					}
-					Method function = invoker.getClass().getDeclaredMethod(funcName, types.toArray(new Class[0]));
-					function.setAccessible(true);
-					function.invoke(invoker, objts.toArray(new Object[0]));
+					Class methClass = invoker.getClass();
+
+					try {
+						NODE_UTILS.invokeMethod(methClass, funcName, invoker, objts.toArray(new Object[0]), types.toArray(new Class[0]));
+
+					} catch (Exception exc) {
+						try {
+							Class typear = Class.forName("["+types.get(0).getName());
+							Object inar = Array.newInstance(types.get(0), objts.size());
+							for (int d = 0; d < objts.size(); d++)
+								Array.set(inar, d, objts.get(d));
+							NODE_UTILS.invokeMethod(methClass, funcName, invoker, inar, typear);
+						} catch (Exception es) {
+							try {
+								NODE_UTILS.invokeMethod(methClass.getSuperclass(), funcName, invoker, objts.toArray(new Object[0]), types.toArray(new Class[0]));
+
+							} catch (Exception eee) {
+								try {
+									Class typear = Class.forName("["+types.get(0).getName());
+									Object inar = Array.newInstance(types.get(0), objts.size());
+									for (int d = 0; d < objts.size(); d++)
+										Array.set(inar, d, objts.get(d));
+									NODE_UTILS.invokeMethod(methClass.getSuperclass(), funcName, invoker, inar, typear);
+								} catch (Exception xfd) {
+									System.err.println("BAD INVOKE ALERT!");
+									xfd.printStackTrace();
+								}
+							}
+						}
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -514,7 +575,7 @@ public class StructNode {
 		StructNode[] args = getStructArray();
 		for (StructNode arg : args) {
 			if (!arg.name.equalsIgnoreCase("function") && !arg.name.equalsIgnoreCase("field")) {
-				Object[] arr = arg.loadInstancedField(instancer);
+				Object[] arr = arg.loadInstancedField(instancer); //TODO BUGFIX
 				Class oclass = (Class) arr[0];
 				Object oobj = arr[1];
 				listType.add(oclass);
@@ -583,9 +644,11 @@ public class StructNode {
 			try {
 				Constructor constructor = ClassLoader.getSystemClassLoader().loadClass(name).getDeclaredConstructor(classArr);
 				constructor.setAccessible(true);
+				System.out.println(constructor.getName() + " : "+constructor.getDeclaringClass().getName());
 				return (T) constructor.newInstance(objectArr);
 			} catch (Exception e) {
 				e.printStackTrace();
+				//e.getCause().printStackTrace();
 			}
 			return null;
 		}
@@ -651,6 +714,15 @@ public class StructNode {
 			return loadPrimitiveByClass(className, node.getString("null", valueNames));
 		}
 
-
+		private static Object invokeMethod(Class methClass, String funcName, Object invoker, Object objts, Class types) throws Exception{
+			Method function = methClass.getDeclaredMethod(funcName, types);
+			function.setAccessible(true);
+			return function.invoke(methClass.cast(invoker), objts);
+		}
+		private static Object invokeMethod(Class methClass, String funcName, Object invoker, Object[] objts, Class[] types) throws Exception{
+			Method function = methClass.getDeclaredMethod(funcName, types);
+			function.setAccessible(true);
+			return function.invoke(methClass.cast(invoker), objts);
+		}
 	}
 }

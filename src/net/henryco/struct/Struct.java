@@ -15,6 +15,7 @@ public class Struct {
     private static final Struct thisDriver = new Struct();
 	public static boolean log_loading = false;
 
+
 	public static List<String[]>[] printDataFile(List<String[]>[] arr) {
         Arrays.stream(arr).forEach(Struct::printData);
         return arr;
@@ -30,5 +31,8 @@ public class Struct {
         return thisDriver;
     }
 
+    public static void setLIB_PATH_PREFIX(String prefix) {
+		InputDriver.PREFIX_PATH = prefix;
+	}
 
 }
