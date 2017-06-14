@@ -10,6 +10,31 @@ Last added: variables, pointers, linker, macros (preprocessor), multidem arrays 
 <h2>Example</h2>
 
 ```
+#sugar ' --> ' .
+#sugar ' -->' .
+#sugar '--> ' .
+#sugar --> .
+
+#sugar -> , 
+#sugar external ext.file
+#sugar 'new ' imports'::spaces::'
+#sugar \( ' \('
+#sugar 'function \{' 'function: \{'
+#sugar 'function  \{' 'function: \{'
+#sugar 'function ' 'function.'
+#sugar 'function  ' 'function.'
+#sugar '\[\]' _array_of_
+imports: {
+	spaces: {
+		null = 0;
+		void = &null;
+		Void(&void)
+	}
+}
+```
+<br>
+
+```
 #sugar 'string\[\]' "java.lang.String[]"
 #import struct
 #sugar pckgUrl "com.game.render.fbo.psProcess.lights.stdLIght.userState"
