@@ -9,7 +9,7 @@ Last added: variables, pointers, linker, macros (preprocessor), multidem arrays 
 <br><br>
 <h2>Example</h2>
 
-```
+``` C
 #sugar ' --> ' .
 #sugar ' -->' .
 #sugar '--> ' .
@@ -34,7 +34,7 @@ imports: {
 ```
 <br>
 
-```
+``` C
 #sugar 'string\[\]' "java.lang.String[]"
 #import struct
 #sugar pckgUrl "com.game.render.fbo.psProcess.lights.stdLIght.userState"
